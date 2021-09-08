@@ -2,14 +2,17 @@ import { S as Stanza, d as defineStanzaElement } from './stanza-4d5e4756.js';
 
 class Hello extends Stanza {
   async render() {
-    this.renderTemplate(
-      {
-        template: 'stanza.html.hbs',
-        parameters: {
-          greeting: `Hello, ${this.params['say-to']}!`
-        }
-      }
-    );
+    const res = await fetch('https://api.ipify.org?format=json');
+    const data = await res.json();
+
+    console.log(data); // {"ip": "..."}
+
+    this.renderTemplate({
+      template: 'stanza.html.hbs',
+      parameters: {
+        greeting: `Hello, you're accessing from ${data.ip}!`,
+      },
+    });
   }
 }
 

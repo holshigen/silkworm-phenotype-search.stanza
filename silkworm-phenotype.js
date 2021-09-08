@@ -1,6 +1,6 @@
 import { S as Stanza, d as defineStanzaElement } from './stanza-4d5e4756.js';
 
-class Hello extends Stanza {
+class SilkwormPhenotype extends Stanza {
   async render() {
     this.renderTemplate(
       {
@@ -15,15 +15,15 @@ class Hello extends Stanza {
 
 var stanzaModule = /*#__PURE__*/Object.freeze({
   __proto__: null,
-  'default': Hello
+  'default': SilkwormPhenotype
 });
 
 var metadata = {
 	"@context": {
 	stanza: "http://togostanza.org/resource/stanza#"
 },
-	"@id": "hello",
-	"stanza:label": "Hello",
+	"@id": "silkworm-phenotype",
+	"stanza:label": "Silkworm Phenotype",
 	"stanza:definition": "",
 	"stanza:type": "Stanza",
 	"stanza:display": "Text",
@@ -33,8 +33,8 @@ var metadata = {
 	"stanza:address": "",
 	"stanza:contributor": [
 ],
-	"stanza:created": "2021-09-07",
-	"stanza:updated": "2021-09-07",
+	"stanza:created": "2021-09-08",
+	"stanza:updated": "2021-09-08",
 	"stanza:parameter": [
 	{
 		"stanza:key": "say-to",
@@ -88,4 +88,4 @@ var templates = [
 const url = import.meta.url.replace(/\?.*$/, '');
 
 defineStanzaElement({stanzaModule, metadata, templates, url});
-//# sourceMappingURL=hello.js.map
+//# sourceMappingURL=silkworm-phenotype.js.map

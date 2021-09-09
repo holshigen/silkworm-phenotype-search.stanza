@@ -4,18 +4,24 @@ import { unwrapValueFromBinding } from 'togostanza/utils';
 export default class Hello extends Stanza {
     async render() {
         try {
-            const results1 = await this.query({
+            var result1 = await this.query({
                 endpoint : "https://rcshige3.nig.ac.jp/rdf/sparql/",
                 template : "stanza1.rq",
             });
-            //console.log(unwrapValueFromBinding(results1));
+            //console.log(unwrapValueFromBinding(result1));
+
+            var result2 = await this.query({
+                endpoint : "https://rcshige3.nig.ac.jp/rdf/sparql/",
+                template : "stanza2.rq",
+            });
 
             this.renderTemplate({
                 template: 'stanza.html.hbs',
                 parameters: {
                     //greeting: `Hello, ${this.params['say-to']}!`
-                    //greeting: `Hello, ${results1}!`
-                    silkworm_phenotype_uri: unwrapValueFromBinding(results1)
+                    //greeting: `Hello, ${result1}!`
+                    silkworm_phenotype_uri: unwrapValueFromBinding(result1),
+                    silkworm_phenotype_search: unwrapValueFromBinding(result2)
                 }
             });
 

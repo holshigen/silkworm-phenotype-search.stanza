@@ -1,50 +1,48 @@
 <style>
-@import url('https://rcshige3.nig.ac.jp/rdf/css/bootstrap.min.css');
-@import url('https://rcshige3.nig.ac.jp/rdf/css/jquery.dataTables.css');
+    @import url('https://rcshige3.nig.ac.jp/rdf/css/bootstrap.min.css');
+    @import url('https://rcshige3.nig.ac.jp/rdf/css/jquery.dataTables.css');
 </style>
 
 <div class="form-check" style="float: right;">
-	<input class="form-check-input" type="checkbox" id="checkbox">
-	<label class="form-check-label" for="checkbox">URI表示</label>
+    <input class="form-check-input" type="checkbox" id="checkbox"/>
+    <label class="form-check-label" for="checkbox">URI表示</label>
 </div>
 <div class="table-responsive">
-	<table id="resultTable" class="table table-bordered table-striped">
-		<thead>
-			{{#each silkworm_phenotype_uri as |uri|}}
-				<th>
-					Strain name<br/>
-					<input type="button" id="uri" class="btn btn-link" style="display: none;" value="{{uri.uri_identifier}}"
-							onclick="location.href='{{uri_identifier.value}}'">
-				</th>
-				<th>
-					Phenotype<br/>
-					<input type="button" id="uri" class="btn btn-link" style="display: none;" value="{{uri.uri_label}}"
-							onclick="location.href='{{uri_label.value}}'">
-				</th>
-				<th>
-					Reference<br/>
-					<input type="button" id="uri" class="btn btn-link" style="display: none;" value="{{uri.uri_isReferencedBy}}"
-							onclick="location.href='{{uri_label.value}}'">
-				</th>
-				<th>
-					Derived from<br/>
-					<input type="button" id="uri" class="btn btn-link" style="display: none;" value="{{uri.uri_derived_from}}"
-							onclick="location.href='{{uri_label.value}}'">
-				</th>
-			{{/each}}
-		</thead>
-		<!--
-		<tbody>
-			{{#each silkworm_phenotype_search}}
-				<tr>
-					<td><a href="https://rcshige3.nig.ac.jp/bioresource-phenotype-search/api/silkworm/{{id.value}}">{{id.value}}</a></td>
-					<td>{{strain_name.value}}</td>
-					<td>{{stage.value}}</td>
-					<td>{{{phenotype.value}}}</td>
-				</tr>
-			{{/each}}
-		</tbody>
-		-->
-	</table>
+    <table id="resultTable" class="table table-bordered table-striped">
+        <thead>
+            {{#each silkworm_phenotype_uri as |uri|}}
+            <th>
+                Strain name<br/>
+                <input type="button" id="uri" class="btn btn-link" style="display: none;" value="{{uri.uri_identifier}}"
+                    onclick="location.href='{{uri.uri_identifier}}'"/>
+            </th>
+            <th>
+                Phenotype<br/>
+                <input type="button" id="uri" class="btn btn-link" style="display: none;" value="{{uri.uri_label}}"
+                    onclick="location.href='{{uri.uri_label}}'"/>
+            </th>
+            <th>
+                Reference<br/>
+                <input type="button" id="uri" class="btn btn-link" style="display: none;" value="{{uri.uri_isReferencedBy}}"
+                    onclick="location.href='{{uri.uri_isReferencedBy}}'"/>
+            </th>
+            <th>
+                Derived from<br/>
+                <input type="button" id="uri" class="btn btn-link" style="display: none;" value="{{uri.uri_derived_from}}"
+                    onclick="location.href='{{uri.uri_derived_from}}'"/>
+            </th>
+            {{/each}}
+        </thead>
+        <tbody>
+            {{#each silkworm_phenotype_search as |item|}}
+            <tr>
+                <td><a href="https://rcshige3.nig.ac.jp/bioresource-phenotype-search/api/silkworm/{{item.id}}">{{item.id}}</a></td>
+                <td>{{{item.phenotype}}}</td>
+                <td>{{item.reference}}</td>
+                <td>{{item.derived_from}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
 </div>
 

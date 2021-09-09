@@ -1,6 +1,6 @@
 import Stanza from 'togostanza/stanza';
 
-export default class Hello extends Stanza {
+export default class SilkwormPhenotype extends Stanza {
   async render() {
     this.renderTemplate(
       {

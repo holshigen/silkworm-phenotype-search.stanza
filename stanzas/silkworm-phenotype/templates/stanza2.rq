@@ -1,0 +1,35 @@
+PREFIX brso: <http://purl.jp/bio/10/brso/>
+PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX dct: <http://purl.org/dc/terms/>
+
+SELECT distinct ?id (group_concat(distinct ?strain_name;separator = ", ") AS ?strain_name) (group_concat(distinct ?stage;separator = ", ") AS ?stage) (group_concat(distinct ?phenotype;separator = ", ") AS ?phenotype)
+FROM <http://iruddat2.nig.ac.jp:8120/silkworm>
+WHERE {
+	{
+		?Resource a brso:BiologicalResource ;
+			dct:identifier ?id ;
+			rdfs:label ?strain_name ;
+			brso:resource_state _:b1 ;
+			sio:SIO_001279 _:b2 .
+		_:b1 a brso:ResourceState ;
+			rdfs:label ?stage .
+		_:b2 a sio:SIO_010056 ;
+			sio:SIO_000255 ?has_annotaion ;
+			rdfs:label ?phenotype .
+		filter regex(?has_annotaion, "{{uri}}", "i")
+	} UNION {
+		?Resource a brso:BiologicalResource ;
+			dct:identifier ?id ;
+			rdfs:label ?strain_name ;
+			brso:resource_state _:b11 ;
+			sio:SIO_001279 _:b22 .
+		_:b11 a brso:ResourceState ;
+			rdfs:label ?stage .
+		_:b22 a sio:SIO_010056 ;
+			rdfs:seeAlso ?has_annotaion ;
+			rdfs:label ?phenotype .
+		filter regex(?has_annotaion, "{{uri}}", "i")
+	}
+}
+ORDER BY ?id

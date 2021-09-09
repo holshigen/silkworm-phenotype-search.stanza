@@ -85,6 +85,9 @@ var templates = [
   return "<p class=\"greeting\">"
     + container.escapeExpression(((helper = (helper = lookupProperty(helpers,"greeting") || (depth0 != null ? lookupProperty(depth0,"greeting") : depth0)) != null ? helper : container.hooks.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"greeting","hash":{},"data":data,"loc":{"start":{"line":1,"column":20},"end":{"line":1,"column":32}}}) : helper)))
     + "</p>\n";
+},"useData":true}],
+["stanza1.rq", {"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
+    return "PREFIX brso: <http://purl.jp/bio/10/brso/>\r\nPREFIX sio: <http://semanticscience.org/resource/>\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nPREFIX so: <http://purl.obolibrary.org/obo/so#>\r\nPREFIX skos: <http://www.w3.org/2004/02/skos/core#>\r\nPREFIX faldo: <http://biohackathon.org/resource/faldo#>\r\nPREFIX dct: <http://purl.org/dc/terms/>\r\nPREFIX insdc: <http://ddbj.nig.ac.jp/ontologies/nucleotide/>\r\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\r\nPREFIX org: <http://www.w3.org/ns/org#>\r\n\r\nSELECT\r\ndct:identifier as ?uri_identifier\r\nrdfs:label as ?uri_label\r\nFROM <http://iruddat2.nig.ac.jp:8120/silkworm>\r\nWHERE {\r\n}\r\nlimit 1\r\n";
 },"useData":true}]
 ];
 

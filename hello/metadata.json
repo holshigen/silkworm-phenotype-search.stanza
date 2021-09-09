@@ -18,7 +18,7 @@
     {
       "stanza:key": "say-to",
       "stanza:type": "string",
-      "stanza:example": "world",
+      "stanza:example": "ABC",
       "stanza:description": "who to say hello to",
       "stanza:required": false
     }

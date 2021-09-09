@@ -1,6 +1,6 @@
-import { S as Stanza, d as defineStanzaElement } from './stanza-4d5e4756.js';
+import { S as Stanza, d as defineStanzaElement } from './stanza-2ddafdb3.js';
 
-class Hello extends Stanza {
+class SilkwormPhenotype extends Stanza {
   async render() {
     const res = await fetch('https://api.ipify.org?format=json');
     const data = await res.json();
@@ -18,7 +18,7 @@ class Hello extends Stanza {
 
 var stanzaModule = /*#__PURE__*/Object.freeze({
   __proto__: null,
-  'default': Hello
+  'default': SilkwormPhenotype
 });
 
 var metadata = {

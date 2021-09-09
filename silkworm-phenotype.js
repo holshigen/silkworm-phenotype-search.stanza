@@ -1870,18 +1870,24 @@ function unwrapValueFromBinding(queryResult) {
 class Hello extends Stanza {
     async render() {
         try {
-            const results1 = await this.query({
+            var result1 = await this.query({
                 endpoint : "https://rcshige3.nig.ac.jp/rdf/sparql/",
                 template : "stanza1.rq",
             });
-            //console.log(unwrapValueFromBinding(results1));
+            //console.log(unwrapValueFromBinding(result1));
+
+            var result2 = await this.query({
+                endpoint : "https://rcshige3.nig.ac.jp/rdf/sparql/",
+                template : "stanza2.rq",
+            });
 
             this.renderTemplate({
                 template: 'stanza.html.hbs',
                 parameters: {
                     //greeting: `Hello, ${this.params['say-to']}!`
-                    //greeting: `Hello, ${results1}!`
-                    silkworm_phenotype_uri: unwrapValueFromBinding(results1)
+                    //greeting: `Hello, ${result1}!`
+                    silkworm_phenotype_uri: unwrapValueFromBinding(result1),
+                    silkworm_phenotype_search: unwrapValueFromBinding(result2)
                 }
             });
 
@@ -1967,24 +1973,24 @@ var templates = [
         return undefined
     };
 
-  return "				<th>\n					Strain name<br/>\n					<input type=\"button\" id=\"uri\" class=\"btn btn-link\" style=\"display: none;\" value=\""
+  return "            <th>\n                Strain name<br/>\n                <input type=\"button\" id=\"uri\" class=\"btn btn-link\" style=\"display: none;\" value=\""
     + alias2(alias1(((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"uri_identifier") : stack1), depth0))
-    + "\"\n							onclick=\"location.href='"
-    + alias2(alias1(((stack1 = (depth0 != null ? lookupProperty(depth0,"uri_identifier") : depth0)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "'\">\n				</th>\n				<th>\n					Phenotype<br/>\n					<input type=\"button\" id=\"uri\" class=\"btn btn-link\" style=\"display: none;\" value=\""
+    + "\"\n                    onclick=\"location.href='"
+    + alias2(alias1(((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"uri_identifier") : stack1), depth0))
+    + "'\"/>\n            </th>\n            <th>\n                Phenotype<br/>\n                <input type=\"button\" id=\"uri\" class=\"btn btn-link\" style=\"display: none;\" value=\""
     + alias2(alias1(((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"uri_label") : stack1), depth0))
-    + "\"\n							onclick=\"location.href='"
-    + alias2(alias1(((stack1 = (depth0 != null ? lookupProperty(depth0,"uri_label") : depth0)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "'\">\n				</th>\n				<th>\n					Reference<br/>\n					<input type=\"button\" id=\"uri\" class=\"btn btn-link\" style=\"display: none;\" value=\""
+    + "\"\n                    onclick=\"location.href='"
+    + alias2(alias1(((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"uri_label") : stack1), depth0))
+    + "'\"/>\n            </th>\n            <th>\n                Reference<br/>\n                <input type=\"button\" id=\"uri\" class=\"btn btn-link\" style=\"display: none;\" value=\""
     + alias2(alias1(((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"uri_isReferencedBy") : stack1), depth0))
-    + "\"\n							onclick=\"location.href='"
-    + alias2(alias1(((stack1 = (depth0 != null ? lookupProperty(depth0,"uri_label") : depth0)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "'\">\n				</th>\n				<th>\n					Derived from<br/>\n					<input type=\"button\" id=\"uri\" class=\"btn btn-link\" style=\"display: none;\" value=\""
+    + "\"\n                    onclick=\"location.href='"
+    + alias2(alias1(((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"uri_isReferencedBy") : stack1), depth0))
+    + "'\"/>\n            </th>\n            <th>\n                Derived from<br/>\n                <input type=\"button\" id=\"uri\" class=\"btn btn-link\" style=\"display: none;\" value=\""
     + alias2(alias1(((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"uri_derived_from") : stack1), depth0))
-    + "\"\n							onclick=\"location.href='"
-    + alias2(alias1(((stack1 = (depth0 != null ? lookupProperty(depth0,"uri_label") : depth0)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "'\">\n				</th>\n";
-},"3":function(container,depth0,helpers,partials,data) {
+    + "\"\n                    onclick=\"location.href='"
+    + alias2(alias1(((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"uri_derived_from") : stack1), depth0))
+    + "'\"/>\n            </th>\n";
+},"3":function(container,depth0,helpers,partials,data,blockParams) {
     var stack1, alias1=container.lambda, alias2=container.escapeExpression, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
           return parent[propertyName];
@@ -1992,17 +1998,17 @@ var templates = [
         return undefined
     };
 
-  return "				<tr>\n					<td><a href=\"https://rcshige3.nig.ac.jp/bioresource-phenotype-search/api/silkworm/"
-    + alias2(alias1(((stack1 = (depth0 != null ? lookupProperty(depth0,"id") : depth0)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
+  return "            <tr>\n                <td><a href=\"https://rcshige3.nig.ac.jp/bioresource-phenotype-search/api/silkworm/"
+    + alias2(alias1(((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"id") : stack1), depth0))
     + "\">"
-    + alias2(alias1(((stack1 = (depth0 != null ? lookupProperty(depth0,"id") : depth0)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "</a></td>\n					<td>"
-    + alias2(alias1(((stack1 = (depth0 != null ? lookupProperty(depth0,"strain_name") : depth0)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "</td>\n					<td>"
-    + alias2(alias1(((stack1 = (depth0 != null ? lookupProperty(depth0,"stage") : depth0)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "</td>\n					<td>"
-    + ((stack1 = alias1(((stack1 = (depth0 != null ? lookupProperty(depth0,"phenotype") : depth0)) != null ? lookupProperty(stack1,"value") : stack1), depth0)) != null ? stack1 : "")
-    + "</td>\n				</tr>\n";
+    + alias2(alias1(((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"id") : stack1), depth0))
+    + "</a></td>\n                <td>"
+    + ((stack1 = alias1(((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"phenotype") : stack1), depth0)) != null ? stack1 : "")
+    + "</td>\n                <td>"
+    + alias2(alias1(((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"reference") : stack1), depth0))
+    + "</td>\n                <td>"
+    + alias2(alias1(((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"derived_from") : stack1), depth0))
+    + "</td>\n            </tr>\n";
 },"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data,blockParams) {
     var stack1, alias1=depth0 != null ? depth0 : (container.nullContext || {}), lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -2011,28 +2017,17 @@ var templates = [
         return undefined
     };
 
-  return "<style>\n@import url('https://rcshige3.nig.ac.jp/rdf/css/bootstrap.min.css');\n@import url('https://rcshige3.nig.ac.jp/rdf/css/jquery.dataTables.css');\n</style>\n\n<div class=\"form-check\" style=\"float: right;\">\n	<input class=\"form-check-input\" type=\"checkbox\" id=\"checkbox\">\n	<label class=\"form-check-label\" for=\"checkbox\">URI表示</label>\n</div>\n<div class=\"table-responsive\">\n	<table id=\"resultTable\" class=\"table table-bordered table-striped\">\n		<thead>\n"
-    + ((stack1 = lookupProperty(helpers,"each").call(alias1,(depth0 != null ? lookupProperty(depth0,"silkworm_phenotype_uri") : depth0),{"name":"each","hash":{},"fn":container.program(1, data, 1, blockParams),"inverse":container.noop,"data":data,"blockParams":blockParams,"loc":{"start":{"line":13,"column":3},"end":{"line":34,"column":12}}})) != null ? stack1 : "")
-    + "		</thead>\n		<!--\n		<tbody>\n"
-    + ((stack1 = lookupProperty(helpers,"each").call(alias1,(depth0 != null ? lookupProperty(depth0,"silkworm_phenotype_search") : depth0),{"name":"each","hash":{},"fn":container.program(3, data, 0, blockParams),"inverse":container.noop,"data":data,"blockParams":blockParams,"loc":{"start":{"line":38,"column":3},"end":{"line":45,"column":12}}})) != null ? stack1 : "")
-    + "		</tbody>\n		-->\n	</table>\n</div>\n\n";
+  return "<style>\n    @import url('https://rcshige3.nig.ac.jp/rdf/css/bootstrap.min.css');\n    @import url('https://rcshige3.nig.ac.jp/rdf/css/jquery.dataTables.css');\n</style>\n\n<div class=\"form-check\" style=\"float: right;\">\n    <input class=\"form-check-input\" type=\"checkbox\" id=\"checkbox\"/>\n    <label class=\"form-check-label\" for=\"checkbox\">URI表示</label>\n</div>\n<div class=\"table-responsive\">\n    <table id=\"resultTable\" class=\"table table-bordered table-striped\">\n        <thead>\n"
+    + ((stack1 = lookupProperty(helpers,"each").call(alias1,(depth0 != null ? lookupProperty(depth0,"silkworm_phenotype_uri") : depth0),{"name":"each","hash":{},"fn":container.program(1, data, 1, blockParams),"inverse":container.noop,"data":data,"blockParams":blockParams,"loc":{"start":{"line":13,"column":12},"end":{"line":34,"column":21}}})) != null ? stack1 : "")
+    + "        </thead>\n        <tbody>\n"
+    + ((stack1 = lookupProperty(helpers,"each").call(alias1,(depth0 != null ? lookupProperty(depth0,"silkworm_phenotype_search") : depth0),{"name":"each","hash":{},"fn":container.program(3, data, 1, blockParams),"inverse":container.noop,"data":data,"blockParams":blockParams,"loc":{"start":{"line":37,"column":12},"end":{"line":44,"column":21}}})) != null ? stack1 : "")
+    + "        </tbody>\n    </table>\n</div>\n\n";
 },"useData":true,"useBlockParams":true}],
 ["stanza1.rq", {"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
     return "PREFIX brso: <http://purl.jp/bio/10/brso/>\r\nPREFIX sio: <http://semanticscience.org/resource/>\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nPREFIX so: <http://purl.obolibrary.org/obo/so#>\r\nPREFIX skos: <http://www.w3.org/2004/02/skos/core#>\r\nPREFIX faldo: <http://biohackathon.org/resource/faldo#>\r\nPREFIX dct: <http://purl.org/dc/terms/>\r\nPREFIX insdc: <http://ddbj.nig.ac.jp/ontologies/nucleotide/>\r\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\r\nPREFIX org: <http://www.w3.org/ns/org#>\r\n\r\nSELECT\r\ndct:identifier as ?uri_identifier\r\nrdfs:label as ?uri_label\r\ndct:isReferencedBy as ?uri_isReferencedBy\r\nbrso:derived_from as ?uri_derived_from\r\nFROM <http://iruddat2.nig.ac.jp:8120/silkworm>\r\nWHERE {\r\n}\r\nlimit 1\r\n";
 },"useData":true}],
 ["stanza2.rq", {"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
-    var stack1, helper, alias1=depth0 != null ? depth0 : (container.nullContext || {}), alias2=container.hooks.helperMissing, alias3="function", lookupProperty = container.lookupProperty || function(parent, propertyName) {
-        if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
-          return parent[propertyName];
-        }
-        return undefined
-    };
-
-  return "PREFIX brso: <http://purl.jp/bio/10/brso/>\r\nPREFIX sio: <http://semanticscience.org/resource/>\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nPREFIX dct: <http://purl.org/dc/terms/>\r\n\r\nSELECT distinct ?id (group_concat(distinct ?strain_name;separator = \", \") AS ?strain_name) (group_concat(distinct ?stage;separator = \", \") AS ?stage) (group_concat(distinct ?phenotype;separator = \", \") AS ?phenotype)\r\nFROM <http://iruddat2.nig.ac.jp:8120/silkworm>\r\nWHERE {\r\n	{\r\n		?Resource a brso:BiologicalResource ;\r\n			dct:identifier ?id ;\r\n			rdfs:label ?strain_name ;\r\n			brso:resource_state _:b1 ;\r\n			sio:SIO_001279 _:b2 .\r\n		_:b1 a brso:ResourceState ;\r\n			rdfs:label ?stage .\r\n		_:b2 a sio:SIO_010056 ;\r\n			sio:SIO_000255 ?has_annotaion ;\r\n			rdfs:label ?phenotype .\r\n		filter regex(?has_annotaion, \""
-    + ((stack1 = ((helper = (helper = lookupProperty(helpers,"uri") || (depth0 != null ? lookupProperty(depth0,"uri") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"uri","hash":{},"data":data,"loc":{"start":{"line":20,"column":32},"end":{"line":20,"column":39}}}) : helper))) != null ? stack1 : "")
-    + "\", \"i\")\r\n	} UNION {\r\n		?Resource a brso:BiologicalResource ;\r\n			dct:identifier ?id ;\r\n			rdfs:label ?strain_name ;\r\n			brso:resource_state _:b11 ;\r\n			sio:SIO_001279 _:b22 .\r\n		_:b11 a brso:ResourceState ;\r\n			rdfs:label ?stage .\r\n		_:b22 a sio:SIO_010056 ;\r\n			rdfs:seeAlso ?has_annotaion ;\r\n			rdfs:label ?phenotype .\r\n		filter regex(?has_annotaion, \""
-    + ((stack1 = ((helper = (helper = lookupProperty(helpers,"uri") || (depth0 != null ? lookupProperty(depth0,"uri") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"uri","hash":{},"data":data,"loc":{"start":{"line":32,"column":32},"end":{"line":32,"column":39}}}) : helper))) != null ? stack1 : "")
-    + "\", \"i\")\r\n	}\r\n}\r\nORDER BY ?id";
+    return "PREFIX brso: <http://purl.jp/bio/10/brso/>\r\nPREFIX sio: <http://semanticscience.org/resource/>\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nPREFIX dct: <http://purl.org/dc/terms/>\r\nPREFIX bmpo: <http://purl.bioontology.org/ontology/BMPO/>\r\n\r\nSELECT distinct ?id  (group_concat(distinct ?phenotype;separator = \", \") AS ?phenotype) ?reference ?derived_from\r\nFROM <http://iruddat2.nig.ac.jp:8120/silkworm>\r\nWHERE {\r\n    {\r\n        ?Resource a brso:BiologicalResource ;\r\n            dct:identifier ?id ;\r\n            dcterms:isReferencedBy ?reference ;\r\n            brso:derived_from ?derived_from ;\r\n            bmpo:stage_egg ?StageResource .\r\n        ?StageResource a brso:BiologicalResourceEgg ;\r\n            sio:SIO_001279 _:b1 .\r\n        _:b1 a sio:SIO_010056 ;\r\n            rdfs:label ?phenotype .\r\n        filter(LANG(?phenotype) != 'ja')\r\n    } UNION {\r\n        ?Resource a brso:BiologicalResource ;\r\n            dct:identifier ?id ;\r\n            dcterms:isReferencedBy ?reference ;\r\n            brso:derived_from ?derived_from ;\r\n            bmpo:stage_larva ?StageResource .\r\n        ?StageResource a brso:BiologicalResourceLarva ;\r\n            sio:SIO_001279 _:b2 .\r\n        _:b2 a sio:SIO_010056 ;\r\n            rdfs:label ?phenotype .\r\n        filter(LANG(?phenotype) != 'ja')\r\n    } UNION {\r\n        ?Resource a brso:BiologicalResource ;\r\n            dct:identifier ?id ;\r\n            dcterms:isReferencedBy ?reference ;\r\n            brso:derived_from ?derived_from ;\r\n            bmpo:stage_pupa ?StageResource .\r\n        ?StageResource a brso:BiologicalResourcePupa ;\r\n            sio:SIO_001279 _:b3 .\r\n        _:b3 a sio:SIO_010056 ;\r\n            rdfs:label ?phenotype .\r\n        filter(LANG(?phenotype) != 'ja')\r\n    } UNION {\r\n        ?Resource a brso:BiologicalResource ;\r\n            dct:identifier ?id ;\r\n            dcterms:isReferencedBy ?reference ;\r\n            brso:derived_from ?derived_from ;\r\n            bmpo:stage_adult ?StageResource .\r\n        ?StageResource a brso:BiologicalResourceAdult ;\r\n            sio:SIO_001279 _:b4 .\r\n        _:b4 a sio:SIO_010056 ;\r\n            rdfs:label ?phenotype .\r\n        filter(LANG(?phenotype) != 'ja')\r\n    }\r\n}\r\nORDER BY ?id\r\n";
 },"useData":true}]
 ];
 

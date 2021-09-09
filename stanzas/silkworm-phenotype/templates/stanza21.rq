@@ -17,7 +17,7 @@ WHERE {
             sio:SIO_001279 _:b1 .
         _:b1 a sio:SIO_010056 ;
             rdfs:label ?phenotype .
-        filter(LANG(?phenotype) != 'ja')
+        filter(LANG(?phenotype) = '{{language}}')
     } UNION {
         ?Resource a brso:BiologicalResource ;
             dct:identifier ?id ;
@@ -28,7 +28,7 @@ WHERE {
             sio:SIO_001279 _:b2 .
         _:b2 a sio:SIO_010056 ;
             rdfs:label ?phenotype .
-        filter(LANG(?phenotype) != 'ja')
+        filter(LANG(?phenotype) = '{{language}}')
     } UNION {
         ?Resource a brso:BiologicalResource ;
             dct:identifier ?id ;
@@ -39,7 +39,7 @@ WHERE {
             sio:SIO_001279 _:b3 .
         _:b3 a sio:SIO_010056 ;
             rdfs:label ?phenotype .
-        filter(LANG(?phenotype) != 'ja')
+        filter(LANG(?phenotype) = '{{language}}')
     } UNION {
         ?Resource a brso:BiologicalResource ;
             dct:identifier ?id ;
@@ -50,7 +50,7 @@ WHERE {
             sio:SIO_001279 _:b4 .
         _:b4 a sio:SIO_010056 ;
             rdfs:label ?phenotype .
-        filter(LANG(?phenotype) != 'ja')
+        filter(LANG(?phenotype) = '{{language}}')
     }
 }
 ORDER BY ?id

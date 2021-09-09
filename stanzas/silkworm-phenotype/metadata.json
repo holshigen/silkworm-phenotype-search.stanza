@@ -16,11 +16,18 @@
   "stanza:updated": "2021-09-08",
   "stanza:parameter": [
     {
-      "stanza:key": "say-to",
+      "stanza:key": "uri",
       "stanza:type": "string",
-      "stanza:example": "world",
-      "stanza:description": "who to say hello to",
+      "stanza:example": "",
+      "stanza:description": "Bombyx Mori or Drosophila Phenotype Ontology Class URI.",
       "stanza:required": false
+    },
+    {
+      "stanza:key": "language",
+      "stanza:type": "string",
+      "stanza:example": "ja",
+      "stanza:description": "'ja' or 'en'.",
+      "stanza:required": true
     }
   ],
   "stanza:menu-placement": "bottom-right",

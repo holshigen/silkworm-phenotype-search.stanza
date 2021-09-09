@@ -8,11 +8,19 @@ export default class Hello extends Stanza {
                 endpoint : "https://rcshige3.nig.ac.jp/rdf/sparql/",
                 template : "stanza1.rq",
             });
-            //console.log(unwrapValueFromBinding(result1));
+            console.log(this.params['language']);
+
+            var rq;
+            if (this.params['uri'] == '' || this.params['uri'] == null) {
+                rq = "stanza21.rq";
+            } else {
+                rq = "stanza22.rq";
+            }
 
             var result2 = await this.query({
                 endpoint : "https://rcshige3.nig.ac.jp/rdf/sparql/",
-                template : "stanza2.rq",
+                template : rq,
+                parameters : this.params,
             });
 
             this.renderTemplate({

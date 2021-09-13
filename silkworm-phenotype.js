@@ -1906,7 +1906,7 @@ class Hello extends Stanza {
             //        this.root.querySelectAll("#uri").hide();
             //    }
             //});
-const checkboxElement = document.getElementsById('checkbox');
+const checkboxElement = document.getElementById('checkbox');
 
 checkboxElement.addEventListener('valueChanged', (event) => {
   console.log('event received', event);

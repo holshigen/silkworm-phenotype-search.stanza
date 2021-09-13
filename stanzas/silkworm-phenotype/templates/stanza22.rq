@@ -23,17 +23,6 @@ WHERE {
             dct:identifier ?id ;
             dcterms:isReferencedBy ?reference ;
             brso:derived_from ?derived_from ;
-            bmpo:stage_egg ?StageResource .
-        ?StageResource a brso:BiologicalResourceEgg ;
-            sio:SIO_001279 _:b11 .
-        _:b11 a sio:SIO_010056 ;
-            rdfs:label ?phenotype .
-        filter(LANG(?phenotype) = '')
-    } UNION {
-        ?Resource a brso:BiologicalResource ;
-            dct:identifier ?id ;
-            dcterms:isReferencedBy ?reference ;
-            brso:derived_from ?derived_from ;
             bmpo:stage_larva ?StageResource .
         ?StageResource a brso:BiologicalResourceLarva ;
             sio:SIO_001279 _:b2 .
@@ -47,43 +36,10 @@ WHERE {
             brso:derived_from ?derived_from ;
             bmpo:stage_larva ?StageResource .
         ?StageResource a brso:BiologicalResourceLarva ;
-            sio:SIO_001279 _:b22 .
-        _:b22 a sio:SIO_010056 ;
-            rdfs:label ?phenotype .
-        filter(LANG(?phenotype) = '')
-    } UNION {
-        ?Resource a brso:BiologicalResource ;
-            dct:identifier ?id ;
-            dcterms:isReferencedBy ?reference ;
-            brso:derived_from ?derived_from ;
-            bmpo:stage_larva ?StageResource .
-        ?StageResource a brso:BiologicalResourceLarva ;
-            sio:SIO_001279 _:b2 .
-        _:b2 a sio:SIO_010056 ;
-            rdfs:label ?phenotype .
-        filter(LANG(?phenotype) = '{{language}}')
-    } UNION {
-        ?Resource a brso:BiologicalResource ;
-            dct:identifier ?id ;
-            dcterms:isReferencedBy ?reference ;
-            brso:derived_from ?derived_from ;
-            bmpo:stage_larva ?StageResource .
-        ?StageResource a brso:BiologicalResourceLarva ;
-            sio:SIO_001279 _:b22 .
-        _:b22 a sio:SIO_010056 ;
-            rdfs:label ?phenotype .
-        filter(LANG(?phenotype) = '{{language}}')
-    } UNION {
-        ?Resource a brso:BiologicalResource ;
-            dct:identifier ?id ;
-            dcterms:isReferencedBy ?reference ;
-            brso:derived_from ?derived_from ;
-            bmpo:stage_pupa ?StageResource .
-        ?StageResource a brso:BiologicalResourcePupa ;
             sio:SIO_001279 _:b3 .
         _:b3 a sio:SIO_010056 ;
             rdfs:label ?phenotype .
-        filter(LANG(?phenotype) = '')
+        filter(LANG(?phenotype) = '{{language}}')
     } UNION {
         ?Resource a brso:BiologicalResource ;
             dct:identifier ?id ;
@@ -91,17 +47,6 @@ WHERE {
             brso:derived_from ?derived_from ;
             bmpo:stage_pupa ?StageResource .
         ?StageResource a brso:BiologicalResourcePupa ;
-            sio:SIO_001279 _:b33 .
-        _:b33 a sio:SIO_010056 ;
-            rdfs:label ?phenotype .
-        filter(LANG(?phenotype) = '')
-    } UNION {
-        ?Resource a brso:BiologicalResource ;
-            dct:identifier ?id ;
-            dcterms:isReferencedBy ?reference ;
-            brso:derived_from ?derived_from ;
-            bmpo:stage_adult ?StageResource .
-        ?StageResource a brso:BiologicalResourceAdult ;
             sio:SIO_001279 _:b4 .
         _:b4 a sio:SIO_010056 ;
             rdfs:label ?phenotype .
@@ -113,8 +58,8 @@ WHERE {
             brso:derived_from ?derived_from ;
             bmpo:stage_adult ?StageResource .
         ?StageResource a brso:BiologicalResourceAdult ;
-            sio:SIO_001279 _:b44 .
-        _:b44 a sio:SIO_010056 ;
+            sio:SIO_001279 _:b5 .
+        _:b5 a sio:SIO_010056 ;
             rdfs:label ?phenotype .
         filter(LANG(?phenotype) = '')
     }
@@ -128,28 +73,6 @@ WHERE {
                     brso:derived_from ?derived_from ;
                     bmpo:stage_egg ?StageResource .
                 ?StageResource a brso:BiologicalResourceEgg ;
-                    sio:SIO_001279 _:b5 .
-                _:b5 a sio:SIO_010056 ;
-                    sio:SIO_000255 ?class .
-                filter regex(?class, "{{uri}}", "i")
-            } UNION {
-                ?Resource a brso:BiologicalResource ;
-                    dct:identifier ?id ;
-                    dcterms:isReferencedBy ?reference ;
-                    brso:derived_from ?derived_from ;
-                    bmpo:stage_egg ?StageResource .
-                ?StageResource a brso:BiologicalResourceEgg ;
-                    sio:SIO_001279 _:b55 .
-                _:b55 a sio:SIO_010056 ;
-                    rdfs:seeAlso ?class .
-                filter regex(?class, "{{uri}}", "i")
-            } UNION {
-                ?Resource a brso:BiologicalResource ;
-                    dct:identifier ?id ;
-                    dcterms:isReferencedBy ?reference ;
-                    brso:derived_from ?derived_from ;
-                    bmpo:stage_larva ?StageResource .
-                ?StageResource a brso:BiologicalResourceLarva ;
                     sio:SIO_001279 _:b6 .
                 _:b6 a sio:SIO_010056 ;
                     sio:SIO_000255 ?class .
@@ -159,32 +82,10 @@ WHERE {
                     dct:identifier ?id ;
                     dcterms:isReferencedBy ?reference ;
                     brso:derived_from ?derived_from ;
-                    bmpo:stage_larva ?StageResource .
-                ?StageResource a brso:BiologicalResourceLarva ;
-                    sio:SIO_001279 _:b66 .
-                _:b66 a sio:SIO_010056 ;
-                    rdfs:seeAlso ?class .
-                filter regex(?class, "{{uri}}", "i")
-            } UNION {
-                ?Resource a brso:BiologicalResource ;
-                    dct:identifier ?id ;
-                    dcterms:isReferencedBy ?reference ;
-                    brso:derived_from ?derived_from ;
-                    bmpo:stage_pupa ?StageResource .
-                ?StageResource a brso:BiologicalResourcePupa ;
+                    bmpo:stage_egg ?StageResource .
+                ?StageResource a brso:BiologicalResourceEgg ;
                     sio:SIO_001279 _:b7 .
                 _:b7 a sio:SIO_010056 ;
-                    sio:SIO_000255 ?class .
-                filter regex(?class, "{{uri}}", "i")
-            } UNION {
-                ?Resource a brso:BiologicalResource ;
-                    dct:identifier ?id ;
-                    dcterms:isReferencedBy ?reference ;
-                    brso:derived_from ?derived_from ;
-                    bmpo:stage_pupa ?StageResource .
-                ?StageResource a brso:BiologicalResourcePupa ;
-                    sio:SIO_001279 _:b77 .
-                _:b77 a sio:SIO_010056 ;
                     rdfs:seeAlso ?class .
                 filter regex(?class, "{{uri}}", "i")
             } UNION {
@@ -192,8 +93,8 @@ WHERE {
                     dct:identifier ?id ;
                     dcterms:isReferencedBy ?reference ;
                     brso:derived_from ?derived_from ;
-                    bmpo:stage_adult ?StageResource .
-                ?StageResource a brso:BiologicalResourceAdult ;
+                    bmpo:stage_larva ?StageResource .
+                ?StageResource a brso:BiologicalResourceLarva ;
                     sio:SIO_001279 _:b8 .
                 _:b8 a sio:SIO_010056 ;
                     sio:SIO_000255 ?class .
@@ -203,10 +104,54 @@ WHERE {
                     dct:identifier ?id ;
                     dcterms:isReferencedBy ?reference ;
                     brso:derived_from ?derived_from ;
+                    bmpo:stage_larva ?StageResource .
+                ?StageResource a brso:BiologicalResourceLarva ;
+                    sio:SIO_001279 _:b9 .
+                _:b9 a sio:SIO_010056 ;
+                    rdfs:seeAlso ?class .
+                filter regex(?class, "{{uri}}", "i")
+            } UNION {
+                ?Resource a brso:BiologicalResource ;
+                    dct:identifier ?id ;
+                    dcterms:isReferencedBy ?reference ;
+                    brso:derived_from ?derived_from ;
+                    bmpo:stage_pupa ?StageResource .
+                ?StageResource a brso:BiologicalResourcePupa ;
+                    sio:SIO_001279 _:b10 .
+                _:b10 a sio:SIO_010056 ;
+                    sio:SIO_000255 ?class .
+                filter regex(?class, "{{uri}}", "i")
+            } UNION {
+                ?Resource a brso:BiologicalResource ;
+                    dct:identifier ?id ;
+                    dcterms:isReferencedBy ?reference ;
+                    brso:derived_from ?derived_from ;
+                    bmpo:stage_pupa ?StageResource .
+                ?StageResource a brso:BiologicalResourcePupa ;
+                    sio:SIO_001279 _:b11 .
+                _:b11 a sio:SIO_010056 ;
+                    rdfs:seeAlso ?class .
+                filter regex(?class, "{{uri}}", "i")
+            } UNION {
+                ?Resource a brso:BiologicalResource ;
+                    dct:identifier ?id ;
+                    dcterms:isReferencedBy ?reference ;
+                    brso:derived_from ?derived_from ;
                     bmpo:stage_adult ?StageResource .
                 ?StageResource a brso:BiologicalResourceAdult ;
-                    sio:SIO_001279 _:b88 .
-                _:b88 a sio:SIO_010056 ;
+                    sio:SIO_001279 _:b12 .
+                _:b12 a sio:SIO_010056 ;
+                    sio:SIO_000255 ?class .
+                filter regex(?class, "{{uri}}", "i")
+            } UNION {
+                ?Resource a brso:BiologicalResource ;
+                    dct:identifier ?id ;
+                    dcterms:isReferencedBy ?reference ;
+                    brso:derived_from ?derived_from ;
+                    bmpo:stage_adult ?StageResource .
+                ?StageResource a brso:BiologicalResourceAdult ;
+                    sio:SIO_001279 _:b13 .
+                _:b13 a sio:SIO_010056 ;
                     rdfs:seeAlso ?class .
                 filter regex(?class, "{{uri}}", "i")
             }

@@ -14,8 +14,8 @@ WHERE {
             brso:derived_from ?derived_from ;
             bmpo:stage_egg ?StageResource .
         ?StageResource a brso:BiologicalResourceEgg ;
-            sio:SIO_001279 _:b_egg_features .
-        _:b_egg_features a sio:SIO_010056 ;
+            sio:SIO_001279 _:b_egg_feature .
+        _:b_egg_feature a sio:SIO_010056 ;
             rdfs:label ?phenotype .
         filter(LANG(?phenotype) = '')
     } UNION {
@@ -25,8 +25,8 @@ WHERE {
             brso:derived_from ?derived_from ;
             bmpo:stage_larva ?StageResource .
         ?StageResource a brso:BiologicalResourceLarva ;
-            sio:SIO_001279 _:b_larva_features .
-        _:b_larva_features a sio:SIO_010056 ;
+            sio:SIO_001279 _:b_larva_feature .
+        _:b_larva_feature a sio:SIO_010056 ;
             rdfs:label ?phenotype .
         filter(LANG(?phenotype) = '')
     } UNION {
@@ -36,8 +36,8 @@ WHERE {
             brso:derived_from ?derived_from ;
             bmpo:stage_pupa ?StageResource .
         ?StageResource a brso:BiologicalResourcePupa ;
-            sio:SIO_001279 _:b_pupa_features .
-        _:b_pupa_features a sio:SIO_010056 ;
+            sio:SIO_001279 _:b_pupa_feature .
+        _:b_pupa_feature a sio:SIO_010056 ;
             rdfs:label ?phenotype .
         filter(LANG(?phenotype) = '')
     } UNION {
@@ -47,8 +47,8 @@ WHERE {
             brso:derived_from ?derived_from ;
             bmpo:stage_adult ?StageResource .
         ?StageResource a brso:BiologicalResourceAdult ;
-            sio:SIO_001279 _:b_adult_features .
-        _:b_adult_features a sio:SIO_010056 ;
+            sio:SIO_001279 _:b_adult_feature .
+        _:b_adult_feature a sio:SIO_010056 ;
             rdfs:label ?phenotype .
         filter(LANG(?phenotype) = '')
     } UNION {
@@ -73,8 +73,8 @@ WHERE {
                     brso:derived_from ?derived_from ;
                     bmpo:stage_egg ?StageResource .
                 ?StageResource a brso:BiologicalResourceEgg ;
-                    sio:SIO_001279 _:b_egg_features_bmpo .
-                _:b_egg_features_bmpo a sio:SIO_010056 ;
+                    sio:SIO_001279 _:b_egg_feature_bmpo .
+                _:b_egg_feature_bmpo a sio:SIO_010056 ;
                     sio:SIO_000255 ?class .
                 filter regex(?class, "{{uri}}", "i")
             } UNION {
@@ -84,8 +84,8 @@ WHERE {
                     brso:derived_from ?derived_from ;
                     bmpo:stage_egg ?StageResource .
                 ?StageResource a brso:BiologicalResourceEgg ;
-                    sio:SIO_001279 _:b_egg_features_dpo .
-                _:b_egg_features_dpo a sio:SIO_010056 ;
+                    sio:SIO_001279 _:b_egg_feature_dpo .
+                _:b_egg_feature_dpo a sio:SIO_010056 ;
                     rdfs:seeAlso ?class .
                 filter regex(?class, "{{uri}}", "i")
             } UNION {
@@ -95,8 +95,8 @@ WHERE {
                     brso:derived_from ?derived_from ;
                     bmpo:stage_larva ?StageResource .
                 ?StageResource a brso:BiologicalResourceLarva ;
-                    sio:SIO_001279 _:b_larva_features_bmpo .
-                _:b_larva_features_bmpo a sio:SIO_010056 ;
+                    sio:SIO_001279 _:b_larva_feature_bmpo .
+                _:b_larva_feature_bmpo a sio:SIO_010056 ;
                     sio:SIO_000255 ?class .
                 filter regex(?class, "{{uri}}", "i")
             } UNION {
@@ -106,8 +106,8 @@ WHERE {
                     brso:derived_from ?derived_from ;
                     bmpo:stage_larva ?StageResource .
                 ?StageResource a brso:BiologicalResourceLarva ;
-                    sio:SIO_001279 _:b_larva_features_dpo .
-                _:b_larva_features_dpo a sio:SIO_010056 ;
+                    sio:SIO_001279 _:b_larva_feature_dpo .
+                _:b_larva_feature_dpo a sio:SIO_010056 ;
                     rdfs:seeAlso ?class .
                 filter regex(?class, "{{uri}}", "i")
             } UNION {
@@ -117,8 +117,8 @@ WHERE {
                     brso:derived_from ?derived_from ;
                     bmpo:stage_pupa ?StageResource .
                 ?StageResource a brso:BiologicalResourcePupa ;
-                    sio:SIO_001279 _:b_pupa_features_bmpo .
-                _:b_pupa_features_bmpo a sio:SIO_010056 ;
+                    sio:SIO_001279 _:b_pupa_feature_bmpo .
+                _:b_pupa_feature_bmpo a sio:SIO_010056 ;
                     sio:SIO_000255 ?class .
                 filter regex(?class, "{{uri}}", "i")
             } UNION {
@@ -128,8 +128,8 @@ WHERE {
                     brso:derived_from ?derived_from ;
                     bmpo:stage_pupa ?StageResource .
                 ?StageResource a brso:BiologicalResourcePupa ;
-                    sio:SIO_001279 _:b_pupa_features_dpo .
-                _:b_pupa_features_dpo a sio:SIO_010056 ;
+                    sio:SIO_001279 _:b_pupa_feature_dpo .
+                _:b_pupa_feature_dpo a sio:SIO_010056 ;
                     rdfs:seeAlso ?class .
                 filter regex(?class, "{{uri}}", "i")
             } UNION {
@@ -139,8 +139,8 @@ WHERE {
                     brso:derived_from ?derived_from ;
                     bmpo:stage_adult ?StageResource .
                 ?StageResource a brso:BiologicalResourceAdult ;
-                    sio:SIO_001279 _:b_adult_features_bmpo .
-                _:b_adult_features_bmpo a sio:SIO_010056 ;
+                    sio:SIO_001279 _:b_adult_feature_bmpo .
+                _:b_adult_feature_bmpo a sio:SIO_010056 ;
                     sio:SIO_000255 ?class .
                 filter regex(?class, "{{uri}}", "i")
             } UNION {
@@ -150,8 +150,8 @@ WHERE {
                     brso:derived_from ?derived_from ;
                     bmpo:stage_adult ?StageResource .
                 ?StageResource a brso:BiologicalResourceAdult ;
-                    sio:SIO_001279 _:b_adult_features_dpo .
-                _:b_adult_features_dpo a sio:SIO_010056 ;
+                    sio:SIO_001279 _:b_adult_feature_dpo .
+                _:b_adult_feature_dpo a sio:SIO_010056 ;
                     rdfs:seeAlso ?class .
                 filter regex(?class, "{{uri}}", "i")
             }

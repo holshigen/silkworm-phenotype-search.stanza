@@ -23,17 +23,6 @@ WHERE {
             dct:identifier ?id ;
             dcterms:isReferencedBy ?reference ;
             brso:derived_from ?derived_from ;
-            bmpo:stage_egg ?StageResource .
-        ?StageResource a brso:BiologicalResourceEgg ;
-            sio:SIO_001279 _:b1 .
-        _:b1 a sio:SIO_010056 ;
-            rdfs:label ?phenotype .
-        filter(LANG(?phenotype) = '{{language}}')
-    } UNION {
-        ?Resource a brso:BiologicalResource ;
-            dct:identifier ?id ;
-            dcterms:isReferencedBy ?reference ;
-            brso:derived_from ?derived_from ;
             bmpo:stage_larva ?StageResource .
         ?StageResource a brso:BiologicalResourceLarva ;
             sio:SIO_001279 _:b2 .
@@ -67,34 +56,12 @@ WHERE {
             dct:identifier ?id ;
             dcterms:isReferencedBy ?reference ;
             brso:derived_from ?derived_from ;
-            bmpo:stage_pupa ?StageResource .
-        ?StageResource a brso:BiologicalResourcePupa ;
-            sio:SIO_001279 _:b3 .
-        _:b3 a sio:SIO_010056 ;
-            rdfs:label ?phenotype .
-        filter(LANG(?phenotype) = '{{language}}')
-    } UNION {
-        ?Resource a brso:BiologicalResource ;
-            dct:identifier ?id ;
-            dcterms:isReferencedBy ?reference ;
-            brso:derived_from ?derived_from ;
             bmpo:stage_adult ?StageResource .
         ?StageResource a brso:BiologicalResourceAdult ;
             sio:SIO_001279 _:b4 .
         _:b4 a sio:SIO_010056 ;
             rdfs:label ?phenotype .
         filter(LANG(?phenotype) = '')
-    } UNION {
-        ?Resource a brso:BiologicalResource ;
-            dct:identifier ?id ;
-            dcterms:isReferencedBy ?reference ;
-            brso:derived_from ?derived_from ;
-            bmpo:stage_adult ?StageResource .
-        ?StageResource a brso:BiologicalResourceAdult ;
-            sio:SIO_001279 _:b4 .
-        _:b4 a sio:SIO_010056 ;
-            rdfs:label ?phenotype .
-        filter(LANG(?phenotype) = '{{language}}')
     }
 }
 ORDER BY ?id

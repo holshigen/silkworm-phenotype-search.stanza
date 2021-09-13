@@ -58,8 +58,8 @@ WHERE {
             brso:derived_from ?derived_from ;
             bmpo:stage_larva ?StageResource .
         ?StageResource a brso:BiologicalResourceLarva ;
-            sio:SIO_001279 _:b2 .
-        _:b2 a sio:SIO_010056 ;
+            sio:SIO_001279 _:b5 .
+        _:b5 a sio:SIO_010056 ;
             rdfs:label ?phenotype .
         filter(LANG(?phenotype) = '{{language}}')
     }

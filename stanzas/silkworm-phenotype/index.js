@@ -40,6 +40,12 @@ export default class Hello extends Stanza {
             //        this.root.querySelectAll("#uri").hide();
             //    }
             //});
+const checkboxElement = document.getElementsById('checkbox');
+
+checkboxElement.addEventListener('valueChanged', (event) => {
+  console.log('event received', event);
+  console.log(event.detail); // {value: 42}
+});
 
         } catch (e) {
             console.log(e);

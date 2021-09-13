@@ -32,16 +32,14 @@ export default class Hello extends Stanza {
             });
 
             // URI表示チェックボックス
-            //this.root.querySelectAll("#checkbox").change(function() {
-            //    var checked = $(this).prop('checked');
-            //    if (checked) {
-            //        this.root.querySelectAll("#uri").show();
-            //    } else {
-            //        this.root.querySelectAll("#uri").hide();
-            //    }
-            //});
-console.log(this.root.querySelector('#checkbox'));
-
+            this.root.querySelector("#checkbox").change(function() {
+                var checked = $(this).prop('checked');
+                if (checked) {
+                    this.root.querySelectAll("#uri").show();
+                } else {
+                    this.root.querySelectAll("#uri").hide();
+                }
+            });
 
         } catch (e) {
             console.log(e);

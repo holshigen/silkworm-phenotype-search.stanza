@@ -1990,11 +1990,11 @@ var templates = [
     + alias2(alias1(((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"uri_identifier") : stack1), depth0))
     + "\"\n                    onclick=\"location.href='"
     + alias2(alias1(((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"uri_identifier") : stack1), depth0))
-    + "'\"/>\n            </th>\n            <th>\n                Phenotype<br/>\n                <input type=\"button\" id=\"uri\" class=\"btn btn-link\" style=\"display: none;\" value=\""
+    + "'\"/>\n            </th>\n            <th>\n                Phenotype<br/>(Features)<br/>\n                <input type=\"button\" id=\"uri\" class=\"btn btn-link\" style=\"display: none;\" value=\""
     + alias2(alias1(((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"uri_label") : stack1), depth0))
     + "\"\n                    onclick=\"location.href='"
     + alias2(alias1(((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"uri_label") : stack1), depth0))
-    + "'\"/>\n            </th>\n            <th>\n                Phenotype<br/>(Feed)<br/>\n                <input type=\"button\" id=\"uri\" class=\"btn btn-link\" style=\"display: none;\" value=\""
+    + "'\"/>\n            </th>\n            <th>\n                Phenotype<br/>(Feeding ability of artificial diets)<br/>\n                <input type=\"button\" id=\"uri\" class=\"btn btn-link\" style=\"display: none;\" value=\""
     + alias2(alias1(((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"uri_label") : stack1), depth0))
     + "\"\n                    onclick=\"location.href='"
     + alias2(alias1(((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"uri_label") : stack1), depth0))

@@ -34,17 +34,6 @@ WHERE {
             dct:identifier ?id ;
             dcterms:isReferencedBy ?reference ;
             brso:derived_from ?derived_from ;
-            bmpo:stage_larva ?StageResource .
-        ?StageResource a brso:BiologicalResourceLarva ;
-            sio:SIO_001279 _:b2 .
-        _:b2 a sio:SIO_010056 ;
-            rdfs:label ?phenotype .
-        filter(LANG(?phenotype) = '{{language}}')
-    } UNION {
-        ?Resource a brso:BiologicalResource ;
-            dct:identifier ?id ;
-            dcterms:isReferencedBy ?reference ;
-            brso:derived_from ?derived_from ;
             bmpo:stage_pupa ?StageResource .
         ?StageResource a brso:BiologicalResourcePupa ;
             sio:SIO_001279 _:b3 .
@@ -62,6 +51,17 @@ WHERE {
         _:b4 a sio:SIO_010056 ;
             rdfs:label ?phenotype .
         filter(LANG(?phenotype) = '')
+    } UNION {
+        ?Resource a brso:BiologicalResource ;
+            dct:identifier ?id ;
+            dcterms:isReferencedBy ?reference ;
+            brso:derived_from ?derived_from ;
+            bmpo:stage_larva ?StageResource .
+        ?StageResource a brso:BiologicalResourceLarva ;
+            sio:SIO_001279 _:b2 .
+        _:b2 a sio:SIO_010056 ;
+            rdfs:label ?phenotype .
+        filter(LANG(?phenotype) = '{{language}}')
     }
 }
 ORDER BY ?id

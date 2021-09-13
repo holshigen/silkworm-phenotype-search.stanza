@@ -26,8 +26,6 @@ export default class Hello extends Stanza {
             this.renderTemplate({
                 template: 'stanza.html.hbs',
                 parameters: {
-                    //greeting: `Hello, ${this.params['say-to']}!`
-                    //greeting: `Hello, ${result1}!`
                     silkworm_phenotype_uri: unwrapValueFromBinding(result1),
                     silkworm_phenotype_search: unwrapValueFromBinding(result2)
                 }

@@ -22,6 +22,11 @@
                     onclick="location.href='{{uri.uri_label}}'"/>
             </th>
             <th>
+                Phenotype<br/>(Feed)<br/>
+                <input type="button" id="uri" class="btn btn-link" style="display: none;" value="{{uri.uri_label}}"
+                    onclick="location.href='{{uri.uri_label}}'"/>
+            </th>
+            <th>
                 Reference<br/>
                 <input type="button" id="uri" class="btn btn-link" style="display: none;" value="{{uri.uri_isReferencedBy}}"
                     onclick="location.href='{{uri.uri_isReferencedBy}}'"/>
@@ -38,6 +43,7 @@
             <tr>
                 <td><a href="https://rcshige3.nig.ac.jp/bioresource-phenotype-search/api/silkworm/{{item.id}}">{{item.id}}</a></td>
                 <td>{{{item.phenotype}}}</td>
+                <td>{{{item.phenotype_feed}}}</td>
                 <td>{{item.reference}}</td>
                 <td>{{item.derived_from}}</td>
             </tr>

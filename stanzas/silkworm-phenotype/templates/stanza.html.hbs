@@ -13,27 +13,27 @@
             {{#each silkworm_phenotype_uri as |uri|}}
             <th>
                 Strain name<br/>
-                <input type="button" id="uri" class="btn btn-link" style="display: none;" value="{{uri.uri_identifier}}"
+                <input type="button" id="uri1" class="btn btn-link" style="display: none;" value="{{uri.uri_identifier}}"
                     onclick="location.href='{{uri.uri_identifier}}'"/>
             </th>
             <th>
                 Features<br/>
-                <input type="button" id="uri" class="btn btn-link" style="display: none;" value="{{uri.uri_label}}"
+                <input type="button" id="uri2" class="btn btn-link" style="display: none;" value="{{uri.uri_label}}"
                     onclick="location.href='{{uri.uri_label}}'"/>
             </th>
             <th>
                 Feeding ability of artificial diets<br/>
-                <input type="button" id="uri" class="btn btn-link" style="display: none;" value="{{uri.uri_label}}"
+                <input type="button" id="uri3" class="btn btn-link" style="display: none;" value="{{uri.uri_label}}"
                     onclick="location.href='{{uri.uri_label}}'"/>
             </th>
             <th>
                 Reference<br/>
-                <input type="button" id="uri" class="btn btn-link" style="display: none;" value="{{uri.uri_isReferencedBy}}"
+                <input type="button" id="uri4" class="btn btn-link" style="display: none;" value="{{uri.uri_isReferencedBy}}"
                     onclick="location.href='{{uri.uri_isReferencedBy}}'"/>
             </th>
             <th>
                 Derived from<br/>
-                <input type="button" id="uri" class="btn btn-link" style="display: none;" value="{{uri.uri_derived_from}}"
+                <input type="button" id="uri5" class="btn btn-link" style="display: none;" value="{{uri.uri_derived_from}}"
                     onclick="location.href='{{uri.uri_derived_from}}'"/>
             </th>
             {{/each}}

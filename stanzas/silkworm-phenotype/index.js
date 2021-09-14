@@ -31,34 +31,36 @@ export default class Hello extends Stanza {
                 }
             });
 
-            $(stanza.select('#resultTable')).dataTable({
-                "aLengthMenu" : [ 10, 25, 50, 100 ], // 表示件数の選択肢
-                "iDisplayLength" : 10, // 表示件数のデフォルトの値
-                "ordering" : false, // ソート
-                "searching" : false, // 検索
-                "oLanguage" : { // 表示される文字
-                    "sEmptyTable" : "No data found.",
-                    "sZeroRecords" : "No data found.",
-                }
-            });
-
-            // URI表示チェックボックス
-            //this.root.querySelector("#checkbox").change(function() {
-            //    var checked = $(this).prop('checked');
-            //    if (checked) {
-            //        this.root.querySelectAll("#uri").show();
-            //    } else {
-            //        this.root.querySelectAll("#uri").hide();
+            //$(this.select('#resultTable')).dataTable({
+            //    "aLengthMenu" : [ 10, 25, 50, 100 ], // 表示件数の選択肢
+            //    "iDisplayLength" : 10, // 表示件数のデフォルトの値
+            //    "ordering" : false, // ソート
+            //    "searching" : false, // 検索
+            //    "oLanguage" : { // 表示される文字
+            //        "sEmptyTable" : "No data found.",
+            //        "sZeroRecords" : "No data found.",
             //    }
             //});
 
+            // URI表示チェックボックス
+            const checkboxElement = this.root.querySelector("#checkbox");
+            checkboxElement.addEventListener('change', e => {
+                if (e.target.checked) {
+                    this.root.querySelector("#uri1").style.display = "";
+                    this.root.querySelector("#uri2").style.display = "";
+                    this.root.querySelector("#uri3").style.display = "";
+                    this.root.querySelector("#uri4").style.display = "";
+                    this.root.querySelector("#uri5").style.display = "";
+                } else {
+                    this.root.querySelector("#uri1").style.display = "none";
+                    this.root.querySelector("#uri2").style.display = "none";
+                    this.root.querySelector("#uri3").style.display = "none";
+                    this.root.querySelector("#uri4").style.display = "none";
+                    this.root.querySelector("#uri5").style.display = "none";
+                }
+            });
         } catch (e) {
             console.log(e);
         }
     }
 }
-//const stanzaElement = document.getElementById('checkbox');
-//stanzaElement.addEventListener('valueChanged', (event) => {
-//  console.log('event received', event);
-//  console.log(event.detail); // {value: 42}
-//});

@@ -31,6 +31,17 @@ export default class Hello extends Stanza {
                 }
             });
 
+            $(stanza.select('#resultTable')).dataTable({
+                "aLengthMenu" : [ 10, 25, 50, 100 ], // 表示件数の選択肢
+                "iDisplayLength" : 10, // 表示件数のデフォルトの値
+                "ordering" : false, // ソート
+                "searching" : false, // 検索
+                "oLanguage" : { // 表示される文字
+                    "sEmptyTable" : "No data found.",
+                    "sZeroRecords" : "No data found.",
+                }
+            });
+
             // URI表示チェックボックス
             //this.root.querySelector("#checkbox").change(function() {
             //    var checked = $(this).prop('checked');

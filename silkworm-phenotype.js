@@ -1912,12 +1912,11 @@ class Hello extends Stanza {
         }
     }
 }
-const stanzaElement = document.getElementById('checkbox');
-
-stanzaElement.addEventListener('valueChanged', (event) => {
-  console.log('event received', event);
-  console.log(event.detail); // {value: 42}
-});
+//const stanzaElement = document.getElementById('checkbox');
+//stanzaElement.addEventListener('valueChanged', (event) => {
+//  console.log('event received', event);
+//  console.log(event.detail); // {value: 42}
+//});
 
 var stanzaModule = /*#__PURE__*/Object.freeze({
   __proto__: null,

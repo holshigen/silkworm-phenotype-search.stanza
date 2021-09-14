@@ -1897,37 +1897,39 @@ class Hello extends Stanza {
                 }
             });
 
-            $(stanza.select('#resultTable')).dataTable({
-                "aLengthMenu" : [ 10, 25, 50, 100 ], // 表示件数の選択肢
-                "iDisplayLength" : 10, // 表示件数のデフォルトの値
-                "ordering" : false, // ソート
-                "searching" : false, // 検索
-                "oLanguage" : { // 表示される文字
-                    "sEmptyTable" : "No data found.",
-                    "sZeroRecords" : "No data found.",
-                }
-            });
-
-            // URI表示チェックボックス
-            //this.root.querySelector("#checkbox").change(function() {
-            //    var checked = $(this).prop('checked');
-            //    if (checked) {
-            //        this.root.querySelectAll("#uri").show();
-            //    } else {
-            //        this.root.querySelectAll("#uri").hide();
+            //$(this.select('#resultTable')).dataTable({
+            //    "aLengthMenu" : [ 10, 25, 50, 100 ], // 表示件数の選択肢
+            //    "iDisplayLength" : 10, // 表示件数のデフォルトの値
+            //    "ordering" : false, // ソート
+            //    "searching" : false, // 検索
+            //    "oLanguage" : { // 表示される文字
+            //        "sEmptyTable" : "No data found.",
+            //        "sZeroRecords" : "No data found.",
             //    }
             //});
 
+            // URI表示チェックボックス
+            const checkboxElement = this.root.querySelector("#checkbox");
+            checkboxElement.addEventListener('change', e => {
+                if (e.target.checked) {
+                    this.root.querySelector("#uri1").style.display = "";
+                    this.root.querySelector("#uri2").style.display = "";
+                    this.root.querySelector("#uri3").style.display = "";
+                    this.root.querySelector("#uri4").style.display = "";
+                    this.root.querySelector("#uri5").style.display = "";
+                } else {
+                    this.root.querySelector("#uri1").style.display = "none";
+                    this.root.querySelector("#uri2").style.display = "none";
+                    this.root.querySelector("#uri3").style.display = "none";
+                    this.root.querySelector("#uri4").style.display = "none";
+                    this.root.querySelector("#uri5").style.display = "none";
+                }
+            });
         } catch (e) {
             console.log(e);
         }
     }
 }
-//const stanzaElement = document.getElementById('checkbox');
-//stanzaElement.addEventListener('valueChanged', (event) => {
-//  console.log('event received', event);
-//  console.log(event.detail); // {value: 42}
-//});
 
 var stanzaModule = /*#__PURE__*/Object.freeze({
   __proto__: null,
@@ -2002,23 +2004,23 @@ var templates = [
         return undefined
     };
 
-  return "            <th>\n                Strain name<br/>\n                <input type=\"button\" id=\"uri\" class=\"btn btn-link\" style=\"display: none;\" value=\""
+  return "            <th>\n                Strain name<br/>\n                <input type=\"button\" id=\"uri1\" class=\"btn btn-link\" style=\"display: none;\" value=\""
     + alias2(alias1(((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"uri_identifier") : stack1), depth0))
     + "\"\n                    onclick=\"location.href='"
     + alias2(alias1(((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"uri_identifier") : stack1), depth0))
-    + "'\"/>\n            </th>\n            <th>\n                Features<br/>\n                <input type=\"button\" id=\"uri\" class=\"btn btn-link\" style=\"display: none;\" value=\""
+    + "'\"/>\n            </th>\n            <th>\n                Features<br/>\n                <input type=\"button\" id=\"uri2\" class=\"btn btn-link\" style=\"display: none;\" value=\""
     + alias2(alias1(((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"uri_label") : stack1), depth0))
     + "\"\n                    onclick=\"location.href='"
     + alias2(alias1(((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"uri_label") : stack1), depth0))
-    + "'\"/>\n            </th>\n            <th>\n                Feeding ability of artificial diets<br/>\n                <input type=\"button\" id=\"uri\" class=\"btn btn-link\" style=\"display: none;\" value=\""
+    + "'\"/>\n            </th>\n            <th>\n                Feeding ability of artificial diets<br/>\n                <input type=\"button\" id=\"uri3\" class=\"btn btn-link\" style=\"display: none;\" value=\""
     + alias2(alias1(((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"uri_label") : stack1), depth0))
     + "\"\n                    onclick=\"location.href='"
     + alias2(alias1(((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"uri_label") : stack1), depth0))
-    + "'\"/>\n            </th>\n            <th>\n                Reference<br/>\n                <input type=\"button\" id=\"uri\" class=\"btn btn-link\" style=\"display: none;\" value=\""
+    + "'\"/>\n            </th>\n            <th>\n                Reference<br/>\n                <input type=\"button\" id=\"uri4\" class=\"btn btn-link\" style=\"display: none;\" value=\""
     + alias2(alias1(((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"uri_isReferencedBy") : stack1), depth0))
     + "\"\n                    onclick=\"location.href='"
     + alias2(alias1(((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"uri_isReferencedBy") : stack1), depth0))
-    + "'\"/>\n            </th>\n            <th>\n                Derived from<br/>\n                <input type=\"button\" id=\"uri\" class=\"btn btn-link\" style=\"display: none;\" value=\""
+    + "'\"/>\n            </th>\n            <th>\n                Derived from<br/>\n                <input type=\"button\" id=\"uri5\" class=\"btn btn-link\" style=\"display: none;\" value=\""
     + alias2(alias1(((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"uri_derived_from") : stack1), depth0))
     + "\"\n                    onclick=\"location.href='"
     + alias2(alias1(((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"uri_derived_from") : stack1), depth0))

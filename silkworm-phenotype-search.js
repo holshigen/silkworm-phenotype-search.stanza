@@ -1,5 +1,5 @@
 import { c as commonjsGlobal, S as Stanza, d as defineStanzaElement } from './stanza-2ddafdb3.js';
-import 'https://rcshige3.nig.ac.jp/bioresource-search/javax.faces.resource/jquery/jquery.js.xhtml?ln=primefaces&v=8.0';
+import 'https://shigen.nig.ac.jp/c.elegans/javax.faces.resource/jquery/jquery.js.xhtml?ln=primefaces&v=6.2';
 import 'https://rcshige3.nig.ac.jp/rdf/js/jquery.dataTables.min.js';
 
 var lodash_isequal = {exports: {}};

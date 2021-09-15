@@ -9420,6 +9420,7 @@ var version = "0.0.1";
 var license = "MIT";
 var repository = "https://github.com/masakazu93/example-stanza-repo";
 var dependencies = {
+	"@vueform/slider": "^2.0.5",
 	togostanza: "github:togostanza/togostanza"
 };
 var engines = {
@@ -9496,4 +9497,4 @@ script.render = render;
 script.__file = "node_modules/togostanza/src/components/Layout.vue";
 
 export { Fragment as F, createElementBlock as a, renderList as b, createBlock as c, defineComponent as d, createBaseVNode as e, createCommentVNode as f, createApp as g, computed as h, createTextVNode as i, ref as j, octicons as k, createVNode as l, mergeProps as m, normalizeClass as n, openBlock as o, normalizeProps as p, guardReactiveProps as q, resolveComponent as r, script as s, toDisplayString as t, resolveDynamicComponent as u, pushScopeId as v, withCtx as w, popScopeId as x, n as y };
-//# sourceMappingURL=Layout-02a446d4.js.map
+//# sourceMappingURL=Layout-be4e38b5.js.map

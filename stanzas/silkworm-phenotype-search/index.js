@@ -1,6 +1,7 @@
 import Stanza from 'togostanza/stanza';
 import { unwrapValueFromBinding } from 'togostanza/utils';
-import * as jquery from 'https://rcshige3.nig.ac.jp/rdf/js/jquery-3.5.1.min.js';
+//import * as jquery from 'https://rcshige3.nig.ac.jp/rdf/js/jquery-3.5.1.min.js';
+import * as jquery from 'https://rcshige3.nig.ac.jp/bioresource-search/javax.faces.resource/jquery/jquery.js.xhtml?ln=primefaces&v=8.0';
 import * as dataTables from 'https://rcshige3.nig.ac.jp/rdf/js/jquery.dataTables.min.js';
 
 

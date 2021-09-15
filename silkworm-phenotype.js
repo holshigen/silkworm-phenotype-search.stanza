@@ -1,4 +1,6 @@
 import { c as commonjsGlobal, S as Stanza, d as defineStanzaElement } from './stanza-2ddafdb3.js';
+import 'https://rcshige3.nig.ac.jp/rdf/js/jquery-3.5.1.min.js';
+import 'https://rcshige3.nig.ac.jp/rdf/js/jquery.dataTables.min.js';
 
 var lodash_isequal = {exports: {}};
 
@@ -1896,6 +1898,17 @@ class Hello extends Stanza {
                     silkworm_phenotype_search: unwrapValueFromBinding(result2)
                 }
             });
+
+$(this.root.querySelector('#resultTable')).dataTable({
+    "aLengthMenu" : [ 10, 25, 50, 100 ], // 表示件数の選択肢
+    "iDisplayLength" : 10, // 表示件数のデフォルトの値
+    "ordering" : false, // ソート
+    "searching" : false, // 検索
+    "oLanguage" : { // 表示される文字
+        "sEmptyTable" : "No data found.",
+        "sZeroRecords" : "No data found.",
+    }
+});
 
             // URI表示チェックボックス
             const checkboxElement = this.root.querySelector("#checkbox");

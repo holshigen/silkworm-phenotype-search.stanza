@@ -1888,12 +1888,13 @@ class Hello extends Stanza {
                 template : rq,
                 parameters : this.params,
             });
+            var data2 = unwrapValueFromBinding(result2);
 
             this.renderTemplate({
                 template: 'stanza.html.hbs',
                 parameters: {
                     silkworm_phenotype_uri: unwrapValueFromBinding(result1),
-                    silkworm_phenotype_search: unwrapValueFromBinding(result2)
+                    silkworm_phenotype_search: data2
                 }
             });
 

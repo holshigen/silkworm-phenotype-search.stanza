@@ -1,5 +1,8 @@
 import Stanza from 'togostanza/stanza';
 import { unwrapValueFromBinding } from 'togostanza/utils';
+import * as jquery from 'https://rcshige3.nig.ac.jp/rdf/js/jquery-3.5.1.min.js';
+import * as dataTables from 'https://rcshige3.nig.ac.jp/rdf/js/jquery.dataTables.min.js';
+
 
 export default class Hello extends Stanza {
     async render() {
@@ -30,6 +33,17 @@ export default class Hello extends Stanza {
                     silkworm_phenotype_search: unwrapValueFromBinding(result2)
                 }
             });
+
+$(this.root.querySelector('#resultTable')).dataTable({
+    "aLengthMenu" : [ 10, 25, 50, 100 ], // 表示件数の選択肢
+    "iDisplayLength" : 10, // 表示件数のデフォルトの値
+    "ordering" : false, // ソート
+    "searching" : false, // 検索
+    "oLanguage" : { // 表示される文字
+        "sEmptyTable" : "No data found.",
+        "sZeroRecords" : "No data found.",
+    }
+});
 
             // URI表示チェックボックス
             const checkboxElement = this.root.querySelector("#checkbox");

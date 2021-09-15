@@ -2,7 +2,7 @@
   "@context": {
     "stanza": "http://togostanza.org/resource/stanza#"
   },
-  "@id": "silkworm-phenotype",
+  "@id": "silkworm-phenotype-search",
   "stanza:label": "Silkworm Phenotype Search",
   "stanza:definition": "",
   "stanza:type": "Stanza",

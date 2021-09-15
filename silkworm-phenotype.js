@@ -1953,7 +1953,7 @@ var metadata = {
 	},
 	{
 		"stanza:key": "language",
-		"stanza:type": "select one",
+		"stanza:type": "single-choice",
 		"stanza:choice": [
 			"ja",
 			"en"

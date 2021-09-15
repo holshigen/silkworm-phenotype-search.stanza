@@ -1944,7 +1944,7 @@ var metadata = {
 	stanza: "http://togostanza.org/resource/stanza#"
 },
 	"@id": "silkworm-phenotype",
-	"stanza:label": "Silkworm Phenotype",
+	"stanza:label": "Silkworm Phenotype Search",
 	"stanza:definition": "",
 	"stanza:type": "Stanza",
 	"stanza:display": "Text",

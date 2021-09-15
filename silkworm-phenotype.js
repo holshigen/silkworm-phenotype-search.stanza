@@ -1953,9 +1953,13 @@ var metadata = {
 	},
 	{
 		"stanza:key": "language",
-		"stanza:type": "string",
+		"stanza:type": "select one",
+		"stanza:choice": [
+			"ja",
+			"en"
+		],
 		"stanza:example": "ja",
-		"stanza:description": "'ja' or 'en'.",
+		"stanza:description": "Display language.",
 		"stanza:required": true
 	}
 ],

@@ -4,6 +4,7 @@
   "license": "MIT",
   "repository": "https://github.com/masakazu93/example-stanza-repo",
   "dependencies": {
+    "@vueform/slider": "^2.0.5",
     "togostanza": "github:togostanza/togostanza"
   },
   "engines": {

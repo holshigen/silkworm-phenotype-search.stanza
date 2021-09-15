@@ -1869,7 +1869,7 @@ function unwrapValueFromBinding(queryResult) {
   });
 }
 
-class Hello extends Stanza {
+class SilkwormPhenotypeSearch extends Stanza {
     async render() {
         try {
             var result1 = await this.query({
@@ -1899,16 +1899,17 @@ class Hello extends Stanza {
                 }
             });
 
-$(this.root.querySelector('#resultTable')).dataTable({
-    "aLengthMenu" : [ 10, 25, 50, 100 ], // 表示件数の選択肢
-    "iDisplayLength" : 10, // 表示件数のデフォルトの値
-    "ordering" : false, // ソート
-    "searching" : false, // 検索
-    "oLanguage" : { // 表示される文字
-        "sEmptyTable" : "No data found.",
-        "sZeroRecords" : "No data found.",
-    }
-});
+            // 結果テーブルにページャーを付ける
+            $(this.root.querySelector('#resultTable')).dataTable({
+                "aLengthMenu" : [ 10, 25, 50, 100 ], // 表示件数の選択肢
+                "iDisplayLength" : 10, // 表示件数のデフォルトの値
+                "ordering" : false, // ソート
+                "searching" : false, // 検索
+                "oLanguage" : { // 表示される文字
+                    "sEmptyTable" : "No data found.",
+                    "sZeroRecords" : "No data found.",
+                }
+            });
 
             // URI表示チェックボックス
             const checkboxElement = this.root.querySelector("#checkbox");
@@ -1936,14 +1937,14 @@ $(this.root.querySelector('#resultTable')).dataTable({
 
 var stanzaModule = /*#__PURE__*/Object.freeze({
   __proto__: null,
-  'default': Hello
+  'default': SilkwormPhenotypeSearch
 });
 
 var metadata = {
 	"@context": {
 	stanza: "http://togostanza.org/resource/stanza#"
 },
-	"@id": "silkworm-phenotype",
+	"@id": "silkworm-phenotype-search",
 	"stanza:label": "Silkworm Phenotype Search",
 	"stanza:definition": "",
 	"stanza:type": "Stanza",
@@ -2115,4 +2116,4 @@ var templates = [
 const url = import.meta.url.replace(/\?.*$/, '');
 
 defineStanzaElement({stanzaModule, metadata, templates, url});
-//# sourceMappingURL=silkworm-phenotype.js.map
+//# sourceMappingURL=silkworm-phenotype-search.js.map

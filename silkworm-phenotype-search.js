@@ -2050,7 +2050,7 @@ var templates = [
         return undefined
     };
 
-  return "            <tr>\n                <td><a href=\"https://rcshige3.nig.ac.jp/bioresource-phenotype-search/api/silkworm/"
+  return "            <tr>\n                <td><a href=\"https://rcshige3.nig.ac.jp/bioresource-search/api/silkworm/"
     + alias2(alias1(((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"id") : stack1), depth0))
     + "\">"
     + alias2(alias1(((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"id") : stack1), depth0))

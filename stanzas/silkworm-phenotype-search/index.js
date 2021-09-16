@@ -11,30 +11,40 @@ import * as dataTables from 'https://rcshige3.nig.ac.jp/rdf/js/jquery.dataTables
 export default class SilkwormPhenotypeSearch extends Stanza {
     async render() {
         try {
-            var result1 = await this.query({
+            let data1 = await this.query({
                 endpoint : "https://rcshige3.nig.ac.jp/rdf/sparql/",
                 template : "stanza1.rq",
             });
-            console.log(this.params['language']);
+            let result1 = unwrapValueFromBinding(data1);
 
-            var rq;
+            let rq;
             if (this.params['uri'] == '' || this.params['uri'] == null) {
                 rq = "stanza21.rq";
             } else {
                 rq = "stanza22.rq";
             }
 
-            var result2 = await this.query({
+            let data2 = await this.query({
                 endpoint : "https://rcshige3.nig.ac.jp/rdf/sparql/",
                 template : rq,
                 parameters : this.params,
+            });
+            let result2 = unwrapValueFromBinding(data2);
+
+            result2.forEach(strain => {
+                let urls = strain.reference.split(",");
+                let linkedUrls = "";
+                urls.forEach(url => {
+                    linkedUrls = linkedUrls + "<div><a href=\"URL\" target=\"_blank\">URL</a></div>".replace(/URL/g, url);
+                });
+                strain.reference = linkedUrls;
             });
 
             this.renderTemplate({
                 template: 'stanza.html.hbs',
                 parameters: {
-                    silkworm_phenotype_uri: unwrapValueFromBinding(result1),
-                    silkworm_phenotype_search: unwrapValueFromBinding(result2)
+                    silkworm_phenotype_uri: result1,
+                    silkworm_phenotype_search: result2
                 }
             });
 

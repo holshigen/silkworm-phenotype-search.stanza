@@ -13,3 +13,8 @@ p.greeting {
   color: var(--greeting-color);
   text-align: var(--greeting-align);
 }
+
+#resultTable th {
+  text-align: center;
+  vertical-align: middle;
+}

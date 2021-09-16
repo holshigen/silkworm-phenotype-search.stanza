@@ -2021,7 +2021,7 @@ var templates = [
         return undefined
     };
 
-  return "            <th>\n                Strain name<br/>\n                <input type=\"button\" id=\"uri1\" class=\"btn btn-link\" style=\"display: none;\" value=\""
+  return "            <th>\n                Strain<br/>\n                <input type=\"button\" id=\"uri1\" class=\"btn btn-link\" style=\"display: none;\" value=\""
     + alias2(alias1(((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"uri_identifier") : stack1), depth0))
     + "\"\n                    onclick=\"location.href='"
     + alias2(alias1(((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"uri_identifier") : stack1), depth0))

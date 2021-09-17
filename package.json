@@ -1,8 +1,8 @@
 {
-  "name": "example-stanza-repo",
+  "name": "silkworm-phenotype-search.stanza",
   "version": "0.0.1",
   "license": "MIT",
-  "repository": "https://github.com/masakazu93/example-stanza-repo",
+  "repository": "https://github.com/holshigen/silkworm-phenotype-search.stanza",
   "dependencies": {
     "@vueform/slider": "^2.0.5",
     "togostanza": "github:togostanza/togostanza"

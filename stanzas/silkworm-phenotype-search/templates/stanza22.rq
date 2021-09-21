@@ -16,10 +16,8 @@ WHERE {
         _:b1 a sio:SIO_010056 ;
             rdfs:label ?phenotype .
         filter(LANG(?phenotype) = '')
-        OPTIONAL {
-            ?Resource dcterms:isReferencedBy ?reference .
-            ?Resource brso:derived_from ?derived_from .
-        }
+        OPTIONAL {?Resource dcterms:isReferencedBy ?reference .}
+        OPTIONAL {?Resource brso:derived_from ?derived_from .}
     } UNION {
         ?Resource a brso:BiologicalResource ;
             dct:identifier ?id ;
@@ -29,10 +27,8 @@ WHERE {
         _:b2 a sio:SIO_010056 ;
             rdfs:label ?phenotype .
         filter(LANG(?phenotype) = '')
-        OPTIONAL {
-            ?Resource dcterms:isReferencedBy ?reference .
-            ?Resource brso:derived_from ?derived_from .
-        }
+        OPTIONAL {?Resource dcterms:isReferencedBy ?reference .}
+        OPTIONAL {?Resource brso:derived_from ?derived_from .}
     } UNION {
         ?Resource a brso:BiologicalResource ;
             dct:identifier ?id ;
@@ -42,10 +38,8 @@ WHERE {
         _:b3 a sio:SIO_010056 ;
             rdfs:label ?phenotype .
         filter(LANG(?phenotype) = '')
-        OPTIONAL {
-            ?Resource dcterms:isReferencedBy ?reference .
-            ?Resource brso:derived_from ?derived_from .
-        }
+        OPTIONAL {?Resource dcterms:isReferencedBy ?reference .}
+        OPTIONAL {?Resource brso:derived_from ?derived_from .}
     } UNION {
         ?Resource a brso:BiologicalResource ;
             dct:identifier ?id ;
@@ -55,10 +49,8 @@ WHERE {
         _:b4 a sio:SIO_010056 ;
             rdfs:label ?phenotype .
         filter(LANG(?phenotype) = '')
-        OPTIONAL {
-            ?Resource dcterms:isReferencedBy ?reference .
-            ?Resource brso:derived_from ?derived_from .
-        }
+        OPTIONAL {?Resource dcterms:isReferencedBy ?reference .}
+        OPTIONAL {?Resource brso:derived_from ?derived_from .}
     } UNION {
         ?Resource a brso:BiologicalResource ;
             dct:identifier ?id ;
@@ -68,10 +60,8 @@ WHERE {
         _:b5 a sio:SIO_010056 ;
             rdfs:label ?phenotype_feed .
         filter(LANG(?phenotype_feed) = '{{language}}')
-        OPTIONAL {
-            ?Resource dcterms:isReferencedBy ?reference .
-            ?Resource brso:derived_from ?derived_from .
-        }
+        OPTIONAL {?Resource dcterms:isReferencedBy ?reference .}
+        OPTIONAL {?Resource brso:derived_from ?derived_from .}
     }
     {
         SELECT distinct ?id
@@ -85,10 +75,8 @@ WHERE {
                 _:b6 a sio:SIO_010056 ;
                     sio:SIO_000255 ?class .
                 filter regex(?class, "{{uri}}", "i")
-                OPTIONAL {
-                    ?Resource dcterms:isReferencedBy ?reference .
-                    ?Resource brso:derived_from ?derived_from .
-                }
+                OPTIONAL {?Resource dcterms:isReferencedBy ?reference .}
+                OPTIONAL {?Resource brso:derived_from ?derived_from .}
             } UNION {
                 ?Resource a brso:BiologicalResource ;
                     dct:identifier ?id ;
@@ -98,10 +86,8 @@ WHERE {
                 _:b7 a sio:SIO_010056 ;
                     rdfs:seeAlso ?class .
                 filter regex(?class, "{{uri}}", "i")
-                OPTIONAL {
-                    ?Resource dcterms:isReferencedBy ?reference .
-                    ?Resource brso:derived_from ?derived_from .
-                }
+                OPTIONAL {?Resource dcterms:isReferencedBy ?reference .}
+                OPTIONAL {?Resource brso:derived_from ?derived_from .}
             } UNION {
                 ?Resource a brso:BiologicalResource ;
                     dct:identifier ?id ;
@@ -111,10 +97,8 @@ WHERE {
                 _:b8 a sio:SIO_010056 ;
                     sio:SIO_000255 ?class .
                 filter regex(?class, "{{uri}}", "i")
-                OPTIONAL {
-                    ?Resource dcterms:isReferencedBy ?reference .
-                    ?Resource brso:derived_from ?derived_from .
-                }
+                OPTIONAL {?Resource dcterms:isReferencedBy ?reference .}
+                OPTIONAL {?Resource brso:derived_from ?derived_from .}
             } UNION {
                 ?Resource a brso:BiologicalResource ;
                     dct:identifier ?id ;
@@ -124,10 +108,8 @@ WHERE {
                 _:b9 a sio:SIO_010056 ;
                     rdfs:seeAlso ?class .
                 filter regex(?class, "{{uri}}", "i")
-                OPTIONAL {
-                    ?Resource dcterms:isReferencedBy ?reference .
-                    ?Resource brso:derived_from ?derived_from .
-                }
+                OPTIONAL {?Resource dcterms:isReferencedBy ?reference .}
+                OPTIONAL {?Resource brso:derived_from ?derived_from .}
             } UNION {
                 ?Resource a brso:BiologicalResource ;
                     dct:identifier ?id ;
@@ -137,10 +119,8 @@ WHERE {
                 _:b10 a sio:SIO_010056 ;
                     sio:SIO_000255 ?class .
                 filter regex(?class, "{{uri}}", "i")
-                OPTIONAL {
-                    ?Resource dcterms:isReferencedBy ?reference .
-                    ?Resource brso:derived_from ?derived_from .
-                }
+                OPTIONAL {?Resource dcterms:isReferencedBy ?reference .}
+                OPTIONAL {?Resource brso:derived_from ?derived_from .}
             } UNION {
                 ?Resource a brso:BiologicalResource ;
                     dct:identifier ?id ;
@@ -150,10 +130,8 @@ WHERE {
                 _:b11 a sio:SIO_010056 ;
                     rdfs:seeAlso ?class .
                 filter regex(?class, "{{uri}}", "i")
-                OPTIONAL {
-                    ?Resource dcterms:isReferencedBy ?reference .
-                    ?Resource brso:derived_from ?derived_from .
-                }
+                OPTIONAL {?Resource dcterms:isReferencedBy ?reference .}
+                OPTIONAL {?Resource brso:derived_from ?derived_from .}
             } UNION {
                 ?Resource a brso:BiologicalResource ;
                     dct:identifier ?id ;
@@ -163,10 +141,8 @@ WHERE {
                 _:b12 a sio:SIO_010056 ;
                     sio:SIO_000255 ?class .
                 filter regex(?class, "{{uri}}", "i")
-                OPTIONAL {
-                    ?Resource dcterms:isReferencedBy ?reference .
-                    ?Resource brso:derived_from ?derived_from .
-                }
+                OPTIONAL {?Resource dcterms:isReferencedBy ?reference .}
+                OPTIONAL {?Resource brso:derived_from ?derived_from .}
             } UNION {
                 ?Resource a brso:BiologicalResource ;
                     dct:identifier ?id ;
@@ -176,10 +152,8 @@ WHERE {
                 _:b13 a sio:SIO_010056 ;
                     rdfs:seeAlso ?class .
                 filter regex(?class, "{{uri}}", "i")
-                OPTIONAL {
-                    ?Resource dcterms:isReferencedBy ?reference .
-                    ?Resource brso:derived_from ?derived_from .
-                }
+                OPTIONAL {?Resource dcterms:isReferencedBy ?reference .}
+                OPTIONAL {?Resource brso:derived_from ?derived_from .}
             }
         }
     }

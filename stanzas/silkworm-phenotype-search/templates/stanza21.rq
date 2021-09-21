@@ -16,9 +16,8 @@ WHERE {
         _:b1 a sio:SIO_010056 ;
             rdfs:label ?phenotype .
         filter(LANG(?phenotype) = '')
-        OPTIONAL {
-            ?Resource dcterms:isReferencedBy ?reference .
-            ?Resource brso:derived_from ?derived_from .
+        OPTIONAL {?Resource dcterms:isReferencedBy ?reference .}
+        OPTIONAL {?Resource brso:derived_from ?derived_from .}
         }
     } UNION {
         ?Resource a brso:BiologicalResource ;
@@ -29,10 +28,8 @@ WHERE {
         _:b2 a sio:SIO_010056 ;
             rdfs:label ?phenotype .
         filter(LANG(?phenotype) = '')
-        OPTIONAL {
-            ?Resource dcterms:isReferencedBy ?reference .
-            ?Resource brso:derived_from ?derived_from .
-        }
+        OPTIONAL {?Resource dcterms:isReferencedBy ?reference .}
+        OPTIONAL {?Resource brso:derived_from ?derived_from .}
     } UNION {
         ?Resource a brso:BiologicalResource ;
             dct:identifier ?id ;
@@ -42,10 +39,8 @@ WHERE {
         _:b3 a sio:SIO_010056 ;
             rdfs:label ?phenotype .
         filter(LANG(?phenotype) = '')
-        OPTIONAL {
-            ?Resource dcterms:isReferencedBy ?reference .
-            ?Resource brso:derived_from ?derived_from .
-        }
+        OPTIONAL {?Resource dcterms:isReferencedBy ?reference .}
+        OPTIONAL {?Resource brso:derived_from ?derived_from .}
     } UNION {
         ?Resource a brso:BiologicalResource ;
             dct:identifier ?id ;
@@ -55,10 +50,8 @@ WHERE {
         _:b4 a sio:SIO_010056 ;
             rdfs:label ?phenotype .
         filter(LANG(?phenotype) = '')
-        OPTIONAL {
-            ?Resource dcterms:isReferencedBy ?reference .
-            ?Resource brso:derived_from ?derived_from .
-        }
+        OPTIONAL {?Resource dcterms:isReferencedBy ?reference .}
+        OPTIONAL {?Resource brso:derived_from ?derived_from .}
     } UNION {
         ?Resource a brso:BiologicalResource ;
             dct:identifier ?id ;
@@ -68,10 +61,8 @@ WHERE {
         _:b5 a sio:SIO_010056 ;
             rdfs:label ?phenotype_feed .
         filter(LANG(?phenotype_feed) = '{{language}}')
-        OPTIONAL {
-            ?Resource dcterms:isReferencedBy ?reference .
-            ?Resource brso:derived_from ?derived_from .
-        }
+        OPTIONAL {?Resource dcterms:isReferencedBy ?reference .}
+        OPTIONAL {?Resource brso:derived_from ?derived_from .}
     }
 }
 ORDER BY ?id

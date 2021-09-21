@@ -14091,7 +14091,7 @@ class SilkwormPhenotypeSearch extends Stanza {
             //    "aLengthMenu" : [ 10, 25, 50, 100 ], // 表示件数の選択肢
             //    "iDisplayLength" : 10, // 表示件数のデフォルトの値
                 "ordering" : true, // ソート
-                "searching" : false, // 検索
+                "searching" : true, // 検索
                 "oLanguage" : { // 表示される文字
                     "sEmptyTable" : "No data found.",
                     "sZeroRecords" : "No data found.",

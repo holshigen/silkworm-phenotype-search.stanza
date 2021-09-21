@@ -18,7 +18,6 @@ WHERE {
         filter(LANG(?phenotype) = '')
         OPTIONAL {?Resource dcterms:isReferencedBy ?reference .}
         OPTIONAL {?Resource brso:derived_from ?derived_from .}
-        }
     } UNION {
         ?Resource a brso:BiologicalResource ;
             dct:identifier ?id ;

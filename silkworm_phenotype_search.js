@@ -14201,7 +14201,7 @@ var templates = [
     + alias2(alias1(((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"uri_identifier") : stack1), depth0))
     + "\"\n                    onclick=\"location.href='"
     + alias2(alias1(((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"uri_identifier") : stack1), depth0))
-    + "'\"/>\n            </th>\n            <th>\n                Features<br/>\n                <input type=\"button\" id=\"uri2\" class=\"btn btn-link\" style=\"display: none;\" value=\""
+    + "'\"/>\n            </th>\n            <th>\n                Background<br/>\n                <input type=\"button\" id=\"uri2\" class=\"btn btn-link\" style=\"display: none;\" value=\""
     + alias2(alias1(((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"uri_label") : stack1), depth0))
     + "\"\n                    onclick=\"location.href='"
     + alias2(alias1(((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"uri_label") : stack1), depth0))
@@ -14209,7 +14209,7 @@ var templates = [
     + alias2(alias1(((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"uri_isReferencedBy") : stack1), depth0))
     + "\"\n                    onclick=\"location.href='"
     + alias2(alias1(((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"uri_isReferencedBy") : stack1), depth0))
-    + "'\"/>\n            </th>\n            <th>\n                Derived from<br/>\n                <input type=\"button\" id=\"uri4\" class=\"btn btn-link\" style=\"display: none;\" value=\""
+    + "'\"/>\n            </th>\n            <th>\n                Origin<br/>\n                <input type=\"button\" id=\"uri4\" class=\"btn btn-link\" style=\"display: none;\" value=\""
     + alias2(alias1(((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"uri_derived_from") : stack1), depth0))
     + "\"\n                    onclick=\"location.href='"
     + alias2(alias1(((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"uri_derived_from") : stack1), depth0))

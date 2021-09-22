@@ -14234,9 +14234,9 @@ var templates = [
     + alias2(alias1(((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"id") : stack1), depth0))
     + "</a></td>\n                <td>"
     + ((stack1 = alias1(((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"phenotype") : stack1), depth0)) != null ? stack1 : "")
-    + "</td>\n                <td>"
+    + "</td>\n                <!-- <td>"
     + ((stack1 = alias1(((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"phenotype_feed") : stack1), depth0)) != null ? stack1 : "")
-    + "</td>\n                <td>"
+    + "</td> -->\n                <td>"
     + ((stack1 = alias1(((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"reference") : stack1), depth0)) != null ? stack1 : "")
     + "</td>\n                <td>"
     + ((stack1 = alias1(((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"derived_from") : stack1), depth0)) != null ? stack1 : "")

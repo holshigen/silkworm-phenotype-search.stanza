@@ -14207,11 +14207,11 @@ var templates = [
     + alias2(alias1(((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"uri_label") : stack1), depth0))
     + "\"\n                    onclick=\"location.href='"
     + alias2(alias1(((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"uri_label") : stack1), depth0))
-    + "'\"/>\n            </th>\n            <th>\n                Feeding ability of artificial diets<br/>\n                <input type=\"button\" id=\"uri3\" class=\"btn btn-link\" style=\"display: none;\" value=\""
+    + "'\"/>\n            </th>\n            <!--\n            <th>\n                Feeding ability of artificial diets<br/>\n                <input type=\"button\" id=\"uri3\" class=\"btn btn-link\" style=\"display: none;\" value=\""
     + alias2(alias1(((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"uri_label") : stack1), depth0))
     + "\"\n                    onclick=\"location.href='"
     + alias2(alias1(((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"uri_label") : stack1), depth0))
-    + "'\"/>\n            </th>\n            <th>\n                Reference<br/>\n                <input type=\"button\" id=\"uri4\" class=\"btn btn-link\" style=\"display: none;\" value=\""
+    + "'\"/>\n            </th>\n            -->\n            <th>\n                Reference<br/>\n                <input type=\"button\" id=\"uri4\" class=\"btn btn-link\" style=\"display: none;\" value=\""
     + alias2(alias1(((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"uri_isReferencedBy") : stack1), depth0))
     + "\"\n                    onclick=\"location.href='"
     + alias2(alias1(((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"uri_isReferencedBy") : stack1), depth0))
@@ -14250,9 +14250,9 @@ var templates = [
     };
 
   return "<style>\n    @import url('https://rcshige3.nig.ac.jp/rdf/css/bootstrap.min.css');\n    @import url('https://rcshige3.nig.ac.jp/rdf/css/jquery.dataTables.css');\n</style>\n\n<div class=\"form-check\" style=\"float: right;\">\n    <input class=\"form-check-input\" type=\"checkbox\" id=\"checkbox\"/>\n    <label class=\"form-check-label\" for=\"checkbox\">URI表示</label>\n</div>\n<div class=\"table-responsive\">\n    <table id=\"resultTable\" class=\"table table-bordered table-striped\">\n        <thead class=\"thead-dark\">\n"
-    + ((stack1 = lookupProperty(helpers,"each").call(alias1,(depth0 != null ? lookupProperty(depth0,"silkworm_phenotype_uri") : depth0),{"name":"each","hash":{},"fn":container.program(1, data, 1, blockParams),"inverse":container.noop,"data":data,"blockParams":blockParams,"loc":{"start":{"line":13,"column":12},"end":{"line":39,"column":21}}})) != null ? stack1 : "")
+    + ((stack1 = lookupProperty(helpers,"each").call(alias1,(depth0 != null ? lookupProperty(depth0,"silkworm_phenotype_uri") : depth0),{"name":"each","hash":{},"fn":container.program(1, data, 1, blockParams),"inverse":container.noop,"data":data,"blockParams":blockParams,"loc":{"start":{"line":13,"column":12},"end":{"line":41,"column":21}}})) != null ? stack1 : "")
     + "        </thead>\n        <tbody>\n"
-    + ((stack1 = lookupProperty(helpers,"each").call(alias1,(depth0 != null ? lookupProperty(depth0,"silkworm_phenotype_search") : depth0),{"name":"each","hash":{},"fn":container.program(3, data, 1, blockParams),"inverse":container.noop,"data":data,"blockParams":blockParams,"loc":{"start":{"line":42,"column":12},"end":{"line":50,"column":21}}})) != null ? stack1 : "")
+    + ((stack1 = lookupProperty(helpers,"each").call(alias1,(depth0 != null ? lookupProperty(depth0,"silkworm_phenotype_search") : depth0),{"name":"each","hash":{},"fn":container.program(3, data, 1, blockParams),"inverse":container.noop,"data":data,"blockParams":blockParams,"loc":{"start":{"line":44,"column":12},"end":{"line":52,"column":21}}})) != null ? stack1 : "")
     + "        </tbody>\n    </table>\n</div>\n\n";
 },"useData":true,"useBlockParams":true}],
 ["stanza1.rq", {"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {

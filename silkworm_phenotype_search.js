@@ -14131,7 +14131,7 @@ var metadata = {
 	"@context": {
 	stanza: "http://togostanza.org/resource/stanza#"
 },
-	"@id": "silkworm-phenotype-search",
+	"@id": "silkworm_phenotype_search",
 	"stanza:label": "Silkworm Phenotype Search",
 	"stanza:definition": "",
 	"stanza:type": "Stanza",
@@ -14164,7 +14164,7 @@ var metadata = {
 		"stanza:required": true
 	}
 ],
-	"stanza:menu-placement": "bottom-right",
+	"stanza:menu-placement": "none",
 	"stanza:style": [
 	{
 		"stanza:key": "--greeting-color",
@@ -14303,4 +14303,4 @@ var templates = [
 const url = import.meta.url.replace(/\?.*$/, '');
 
 defineStanzaElement({stanzaModule, metadata, templates, url});
-//# sourceMappingURL=silkworm-phenotype-search.js.map
+//# sourceMappingURL=silkworm_phenotype_search.js.map

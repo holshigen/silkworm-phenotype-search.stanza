@@ -66,13 +66,13 @@ export default class SilkwormPhenotypeSearch extends Stanza {
                 if (e.target.checked) {
                     this.root.querySelector("#uri1").style.display = "";
                     this.root.querySelector("#uri2").style.display = "";
-                    this.root.querySelector("#uri3").style.display = "";
+                    //this.root.querySelector("#uri3").style.display = "";
                     this.root.querySelector("#uri4").style.display = "";
                     this.root.querySelector("#uri5").style.display = "";
                 } else {
                     this.root.querySelector("#uri1").style.display = "none";
                     this.root.querySelector("#uri2").style.display = "none";
-                    this.root.querySelector("#uri3").style.display = "none";
+                    //this.root.querySelector("#uri3").style.display = "none";
                     this.root.querySelector("#uri4").style.display = "none";
                     this.root.querySelector("#uri5").style.display = "none";
                 }

@@ -24,3 +24,7 @@ p.greeting {
   text-align: center;
   vertical-align: middle;
 }
+
+table.dataTable {
+  width: 99%;
+}

@@ -40,11 +40,20 @@ export default class SilkwormPhenotypeSearch extends Stanza {
                 strain.reference = linkedUrls;
             });
 
+            let lang = false;
+            if (this.params['language'] == "ja") {
+                lang = true;
+            }
+
             this.renderTemplate({
                 template: 'stanza.html.hbs',
                 parameters: {
-                    silkworm_phenotype_uri: result1,
-                    silkworm_phenotype_search: result2
+                    uri_identifier: result1[0].uri_identifier,
+                    uri_label: result1[0].uri_label,
+                    uri_isReferencedBy: result1[0].uri_isReferencedBy,
+                    uri_derived_from: result1[0].uri_derived_from,
+                    silkworm_phenotype_search: result2,
+                    lang: lang
                 }
             });
 

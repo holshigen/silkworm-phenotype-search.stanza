@@ -14078,11 +14078,20 @@ class SilkwormPhenotypeSearch extends Stanza {
                 strain.reference = linkedUrls;
             });
 
+            let lang = false;
+            if (this.params['language'] == "ja") {
+                lang = true;
+            }
+
             this.renderTemplate({
                 template: 'stanza.html.hbs',
                 parameters: {
-                    silkworm_phenotype_uri: result1,
-                    silkworm_phenotype_search: result2
+                    uri_identifier: result1[0].uri_identifier,
+                    uri_label: result1[0].uri_label,
+                    uri_isReferencedBy: result1[0].uri_isReferencedBy,
+                    uri_derived_from: result1[0].uri_derived_from,
+                    silkworm_phenotype_search: result2,
+                    lang: lang
                 }
             });
 
@@ -14189,32 +14198,23 @@ var metadata = {
 };
 
 var templates = [
-  ["stanza.html.hbs", {"1":function(container,depth0,helpers,partials,data,blockParams) {
-    var stack1, alias1=container.lambda, alias2=container.escapeExpression, lookupProperty = container.lookupProperty || function(parent, propertyName) {
-        if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
-          return parent[propertyName];
-        }
-        return undefined
-    };
-
-  return "            <th>\n                Strain<br/>\n                <input type=\"button\" id=\"uri1\" class=\"btn btn-link\" style=\"display: none;\" value=\""
-    + alias2(alias1(((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"uri_identifier") : stack1), depth0))
-    + "\"\n                    onclick=\"location.href='"
-    + alias2(alias1(((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"uri_identifier") : stack1), depth0))
-    + "'\"/>\n            </th>\n            <th>\n                Background<br/>\n                <input type=\"button\" id=\"uri2\" class=\"btn btn-link\" style=\"display: none;\" value=\""
-    + alias2(alias1(((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"uri_label") : stack1), depth0))
-    + "\"\n                    onclick=\"location.href='"
-    + alias2(alias1(((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"uri_label") : stack1), depth0))
-    + "'\"/>\n            </th>\n            <th>\n                Reference<br/>\n                <input type=\"button\" id=\"uri3\" class=\"btn btn-link\" style=\"display: none;\" value=\""
-    + alias2(alias1(((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"uri_isReferencedBy") : stack1), depth0))
-    + "\"\n                    onclick=\"location.href='"
-    + alias2(alias1(((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"uri_isReferencedBy") : stack1), depth0))
-    + "'\"/>\n            </th>\n            <th>\n                Origin<br/>\n                <input type=\"button\" id=\"uri4\" class=\"btn btn-link\" style=\"display: none;\" value=\""
-    + alias2(alias1(((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"uri_derived_from") : stack1), depth0))
-    + "\"\n                    onclick=\"location.href='"
-    + alias2(alias1(((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"uri_derived_from") : stack1), depth0))
-    + "'\"/>\n            </th>\n";
-},"3":function(container,depth0,helpers,partials,data,blockParams) {
+  ["stanza.html.hbs", {"1":function(container,depth0,helpers,partials,data) {
+    return "系統";
+},"3":function(container,depth0,helpers,partials,data) {
+    return "Strain";
+},"5":function(container,depth0,helpers,partials,data) {
+    return "遺伝的背景";
+},"7":function(container,depth0,helpers,partials,data) {
+    return "Background";
+},"9":function(container,depth0,helpers,partials,data) {
+    return "成果論文";
+},"11":function(container,depth0,helpers,partials,data) {
+    return "Reference";
+},"13":function(container,depth0,helpers,partials,data) {
+    return "起源";
+},"15":function(container,depth0,helpers,partials,data) {
+    return "Origin";
+},"17":function(container,depth0,helpers,partials,data,blockParams) {
     var stack1, alias1=container.lambda, alias2=container.escapeExpression, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
           return parent[propertyName];
@@ -14234,6 +14234,108 @@ var templates = [
     + ((stack1 = alias1(((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"derived_from") : stack1), depth0)) != null ? stack1 : "")
     + "</td>\n            </tr>\n";
 },"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data,blockParams) {
+    var stack1, helper, alias1=depth0 != null ? depth0 : (container.nullContext || {}), alias2=container.hooks.helperMissing, alias3="function", alias4=container.escapeExpression, lookupProperty = container.lookupProperty || function(parent, propertyName) {
+        if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
+          return parent[propertyName];
+        }
+        return undefined
+    };
+
+  return "<style>\n    @import url('https://rcshige3.nig.ac.jp/rdf/css/bootstrap.min.css');\n    @import url('https://rcshige3.nig.ac.jp/rdf/css/jquery.dataTables.css');\n</style>\n\n<div class=\"form-check\" style=\"float: right;\">\n    <input class=\"form-check-input\" type=\"checkbox\" id=\"checkbox\"/>\n    <label class=\"form-check-label\" for=\"checkbox\">URI表示</label>\n</div>\n<div class=\"table-responsive\">\n    <table id=\"resultTable\" class=\"table table-bordered table-striped\">\n        <thead class=\"thead-dark\">\n            <th>\n                "
+    + ((stack1 = lookupProperty(helpers,"if").call(alias1,(depth0 != null ? lookupProperty(depth0,"lang") : depth0),{"name":"if","hash":{},"fn":container.program(1, data, 0, blockParams),"inverse":container.program(3, data, 0, blockParams),"data":data,"blockParams":blockParams,"loc":{"start":{"line":14,"column":16},"end":{"line":14,"column":51}}})) != null ? stack1 : "")
+    + "<br/>\n                <input type=\"button\" id=\"uri1\" class=\"btn btn-link\" style=\"display: none;\" value=\""
+    + alias4(((helper = (helper = lookupProperty(helpers,"uri_identifier") || (depth0 != null ? lookupProperty(depth0,"uri_identifier") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"uri_identifier","hash":{},"data":data,"blockParams":blockParams,"loc":{"start":{"line":15,"column":98},"end":{"line":15,"column":116}}}) : helper)))
+    + "\"\n                    onclick=\"location.href='"
+    + alias4(((helper = (helper = lookupProperty(helpers,"uri_identifier") || (depth0 != null ? lookupProperty(depth0,"uri_identifier") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"uri_identifier","hash":{},"data":data,"blockParams":blockParams,"loc":{"start":{"line":16,"column":44},"end":{"line":16,"column":62}}}) : helper)))
+    + "'\"/>\n            </th>\n            <th>\n                "
+    + ((stack1 = lookupProperty(helpers,"if").call(alias1,(depth0 != null ? lookupProperty(depth0,"lang") : depth0),{"name":"if","hash":{},"fn":container.program(5, data, 0, blockParams),"inverse":container.program(7, data, 0, blockParams),"data":data,"blockParams":blockParams,"loc":{"start":{"line":19,"column":16},"end":{"line":19,"column":58}}})) != null ? stack1 : "")
+    + "<br/>\n                <input type=\"button\" id=\"uri2\" class=\"btn btn-link\" style=\"display: none;\" value=\""
+    + alias4(((helper = (helper = lookupProperty(helpers,"uri_label") || (depth0 != null ? lookupProperty(depth0,"uri_label") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"uri_label","hash":{},"data":data,"blockParams":blockParams,"loc":{"start":{"line":20,"column":98},"end":{"line":20,"column":111}}}) : helper)))
+    + "\"\n                    onclick=\"location.href='"
+    + alias4(((helper = (helper = lookupProperty(helpers,"uri_label") || (depth0 != null ? lookupProperty(depth0,"uri_label") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"uri_label","hash":{},"data":data,"blockParams":blockParams,"loc":{"start":{"line":21,"column":44},"end":{"line":21,"column":57}}}) : helper)))
+    + "'\"/>\n            </th>\n            <th>\n                "
+    + ((stack1 = lookupProperty(helpers,"if").call(alias1,(depth0 != null ? lookupProperty(depth0,"lang") : depth0),{"name":"if","hash":{},"fn":container.program(9, data, 0, blockParams),"inverse":container.program(11, data, 0, blockParams),"data":data,"blockParams":blockParams,"loc":{"start":{"line":24,"column":16},"end":{"line":24,"column":56}}})) != null ? stack1 : "")
+    + "<br/>\n                <input type=\"button\" id=\"uri3\" class=\"btn btn-link\" style=\"display: none;\" value=\""
+    + alias4(((helper = (helper = lookupProperty(helpers,"uri_isReferencedBy") || (depth0 != null ? lookupProperty(depth0,"uri_isReferencedBy") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"uri_isReferencedBy","hash":{},"data":data,"blockParams":blockParams,"loc":{"start":{"line":25,"column":98},"end":{"line":25,"column":120}}}) : helper)))
+    + "\"\n                    onclick=\"location.href='"
+    + alias4(((helper = (helper = lookupProperty(helpers,"uri_isReferencedBy") || (depth0 != null ? lookupProperty(depth0,"uri_isReferencedBy") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"uri_isReferencedBy","hash":{},"data":data,"blockParams":blockParams,"loc":{"start":{"line":26,"column":44},"end":{"line":26,"column":66}}}) : helper)))
+    + "'\"/>\n            </th>\n            <th>\n                "
+    + ((stack1 = lookupProperty(helpers,"if").call(alias1,(depth0 != null ? lookupProperty(depth0,"lang") : depth0),{"name":"if","hash":{},"fn":container.program(13, data, 0, blockParams),"inverse":container.program(15, data, 0, blockParams),"data":data,"blockParams":blockParams,"loc":{"start":{"line":29,"column":16},"end":{"line":29,"column":51}}})) != null ? stack1 : "")
+    + "<br/>\n                <input type=\"button\" id=\"uri4\" class=\"btn btn-link\" style=\"display: none;\" value=\""
+    + alias4(((helper = (helper = lookupProperty(helpers,"uri_derived_from") || (depth0 != null ? lookupProperty(depth0,"uri_derived_from") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"uri_derived_from","hash":{},"data":data,"blockParams":blockParams,"loc":{"start":{"line":30,"column":98},"end":{"line":30,"column":118}}}) : helper)))
+    + "\"\n                    onclick=\"location.href='"
+    + alias4(((helper = (helper = lookupProperty(helpers,"uri_derived_from") || (depth0 != null ? lookupProperty(depth0,"uri_derived_from") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"uri_derived_from","hash":{},"data":data,"blockParams":blockParams,"loc":{"start":{"line":31,"column":44},"end":{"line":31,"column":64}}}) : helper)))
+    + "'\"/>\n            </th>\n        </thead>\n        <tbody>\n"
+    + ((stack1 = lookupProperty(helpers,"each").call(alias1,(depth0 != null ? lookupProperty(depth0,"silkworm_phenotype_search") : depth0),{"name":"each","hash":{},"fn":container.program(17, data, 1, blockParams),"inverse":container.noop,"data":data,"blockParams":blockParams,"loc":{"start":{"line":35,"column":12},"end":{"line":42,"column":21}}})) != null ? stack1 : "")
+    + "        </tbody>\n    </table>\n</div>\n\n";
+},"useData":true,"useBlockParams":true}],
+["stanza.html.hbs.orig", {"1":function(container,depth0,helpers,partials,data,blockParams) {
+    var stack1, helper, alias1=depth0 != null ? depth0 : (container.nullContext || {}), alias2=container.lambda, alias3=container.hooks.helperMissing, alias4="function", lookupProperty = container.lookupProperty || function(parent, propertyName) {
+        if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
+          return parent[propertyName];
+        }
+        return undefined
+    };
+
+  return " -->\n            <th>\n"
+    + ((stack1 = lookupProperty(helpers,"if").call(alias1,(depth0 != null ? lookupProperty(depth0,"lang") : depth0),{"name":"if","hash":{},"fn":container.program(2, data, 0),"inverse":container.program(4, data, 0),"data":data,"loc":{"start":{"line":15,"column":16},"end":{"line":19,"column":23}}})) != null ? stack1 : "")
+    + "                <br/>\n                <!-- Strain<br/> -->\n                <!--\n                <input type=\"button\" id=\"uri1\" class=\"btn btn-link\" style=\"display: none;\" value=\""
+    + ((stack1 = alias2(((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"uri_identifier") : stack1), depth0)) != null ? stack1 : "")
+    + "\"\n                    onclick=\"location.href='"
+    + ((stack1 = alias2(((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"uri_identifier") : stack1), depth0)) != null ? stack1 : "")
+    + "'\"/>\n                -->\n                <input type=\"button\" id=\"uri1\" class=\"btn btn-link\" style=\"display: none;\" value=\""
+    + ((stack1 = ((helper = (helper = lookupProperty(helpers,"uri_identifier") || (depth0 != null ? lookupProperty(depth0,"uri_identifier") : depth0)) != null ? helper : alias3),(typeof helper === alias4 ? helper.call(alias1,{"name":"uri_identifier","hash":{},"data":data,"blockParams":blockParams,"loc":{"start":{"line":26,"column":98},"end":{"line":26,"column":116}}}) : helper))) != null ? stack1 : "")
+    + "\"\n                    onclick=\"location.href='"
+    + ((stack1 = ((helper = (helper = lookupProperty(helpers,"uri_identifier") || (depth0 != null ? lookupProperty(depth0,"uri_identifier") : depth0)) != null ? helper : alias3),(typeof helper === alias4 ? helper.call(alias1,{"name":"uri_identifier","hash":{},"data":data,"blockParams":blockParams,"loc":{"start":{"line":27,"column":44},"end":{"line":27,"column":62}}}) : helper))) != null ? stack1 : "")
+    + "'\"/>\n            </th>\n            <th>\n                Background<br/>\n                <!--\n                <input type=\"button\" id=\"uri2\" class=\"btn btn-link\" style=\"display: none;\" value=\""
+    + ((stack1 = alias2(((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"uri_label") : stack1), depth0)) != null ? stack1 : "")
+    + "\"\n                    onclick=\"location.href='"
+    + ((stack1 = alias2(((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"uri_label") : stack1), depth0)) != null ? stack1 : "")
+    + "'\"/>\n                -->\n                <input type=\"button\" id=\"uri2\" class=\"btn btn-link\" style=\"display: none;\" value=\""
+    + ((stack1 = ((helper = (helper = lookupProperty(helpers,"uri_label") || (depth0 != null ? lookupProperty(depth0,"uri_label") : depth0)) != null ? helper : alias3),(typeof helper === alias4 ? helper.call(alias1,{"name":"uri_label","hash":{},"data":data,"blockParams":blockParams,"loc":{"start":{"line":35,"column":98},"end":{"line":35,"column":111}}}) : helper))) != null ? stack1 : "")
+    + "\"\n                    onclick=\"location.href='"
+    + ((stack1 = ((helper = (helper = lookupProperty(helpers,"uri_label") || (depth0 != null ? lookupProperty(depth0,"uri_label") : depth0)) != null ? helper : alias3),(typeof helper === alias4 ? helper.call(alias1,{"name":"uri_label","hash":{},"data":data,"blockParams":blockParams,"loc":{"start":{"line":36,"column":44},"end":{"line":36,"column":57}}}) : helper))) != null ? stack1 : "")
+    + "'\"/>\n            </th>\n            <th>\n                Reference<br/>\n                <!--\n                <input type=\"button\" id=\"uri3\" class=\"btn btn-link\" style=\"display: none;\" value=\""
+    + ((stack1 = alias2(((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"uri_isReferencedBy") : stack1), depth0)) != null ? stack1 : "")
+    + "\"\n                    onclick=\"location.href='"
+    + ((stack1 = alias2(((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"uri_isReferencedBy") : stack1), depth0)) != null ? stack1 : "")
+    + "'\"/>\n                -->\n                <input type=\"button\" id=\"uri3\" class=\"btn btn-link\" style=\"display: none;\" value=\""
+    + ((stack1 = ((helper = (helper = lookupProperty(helpers,"uri_isReferencedBy") || (depth0 != null ? lookupProperty(depth0,"uri_isReferencedBy") : depth0)) != null ? helper : alias3),(typeof helper === alias4 ? helper.call(alias1,{"name":"uri_isReferencedBy","hash":{},"data":data,"blockParams":blockParams,"loc":{"start":{"line":44,"column":98},"end":{"line":44,"column":120}}}) : helper))) != null ? stack1 : "")
+    + "\"\n                    onclick=\"location.href='"
+    + ((stack1 = ((helper = (helper = lookupProperty(helpers,"uri_isReferencedBy") || (depth0 != null ? lookupProperty(depth0,"uri_isReferencedBy") : depth0)) != null ? helper : alias3),(typeof helper === alias4 ? helper.call(alias1,{"name":"uri_isReferencedBy","hash":{},"data":data,"blockParams":blockParams,"loc":{"start":{"line":45,"column":44},"end":{"line":45,"column":66}}}) : helper))) != null ? stack1 : "")
+    + "'\"/>\n            </th>\n            <th>\n                Origin<br/>\n                <!--\n                <input type=\"button\" id=\"uri4\" class=\"btn btn-link\" style=\"display: none;\" value=\""
+    + ((stack1 = alias2(((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"uri_derived_from") : stack1), depth0)) != null ? stack1 : "")
+    + "\"\n                    onclick=\"location.href='"
+    + ((stack1 = alias2(((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"uri_derived_from") : stack1), depth0)) != null ? stack1 : "")
+    + "'\"/>\n                -->\n                <input type=\"button\" id=\"uri4\" class=\"btn btn-link\" style=\"display: none;\" value=\""
+    + ((stack1 = ((helper = (helper = lookupProperty(helpers,"uri_derived_from") || (depth0 != null ? lookupProperty(depth0,"uri_derived_from") : depth0)) != null ? helper : alias3),(typeof helper === alias4 ? helper.call(alias1,{"name":"uri_derived_from","hash":{},"data":data,"blockParams":blockParams,"loc":{"start":{"line":53,"column":98},"end":{"line":53,"column":118}}}) : helper))) != null ? stack1 : "")
+    + "\"\n                    onclick=\"location.href='"
+    + ((stack1 = ((helper = (helper = lookupProperty(helpers,"uri_derived_from") || (depth0 != null ? lookupProperty(depth0,"uri_derived_from") : depth0)) != null ? helper : alias3),(typeof helper === alias4 ? helper.call(alias1,{"name":"uri_derived_from","hash":{},"data":data,"blockParams":blockParams,"loc":{"start":{"line":54,"column":44},"end":{"line":54,"column":64}}}) : helper))) != null ? stack1 : "")
+    + "'\"/>\n            </th>\n            <!-- ";
+},"2":function(container,depth0,helpers,partials,data) {
+    return "                <span>系統</span>\n";
+},"4":function(container,depth0,helpers,partials,data) {
+    return "                <span>Strain</span>\n";
+},"6":function(container,depth0,helpers,partials,data,blockParams) {
+    var stack1, alias1=container.lambda, lookupProperty = container.lookupProperty || function(parent, propertyName) {
+        if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
+          return parent[propertyName];
+        }
+        return undefined
+    };
+
+  return "            <tr>\n                <td><a href=\"https://rcshige3.nig.ac.jp/bioresource-search/api/silkworm/"
+    + ((stack1 = alias1(((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"id") : stack1), depth0)) != null ? stack1 : "")
+    + "\">"
+    + ((stack1 = alias1(((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"id") : stack1), depth0)) != null ? stack1 : "")
+    + "</a></td>\n                <td>"
+    + ((stack1 = alias1(((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"phenotype") : stack1), depth0)) != null ? stack1 : "")
+    + "</td>\n                <td>"
+    + ((stack1 = alias1(((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"reference") : stack1), depth0)) != null ? stack1 : "")
+    + "</td>\n                <td>"
+    + ((stack1 = alias1(((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"derived_from") : stack1), depth0)) != null ? stack1 : "")
+    + "</td>\n            </tr>\n";
+},"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data,blockParams) {
     var stack1, alias1=depth0 != null ? depth0 : (container.nullContext || {}), lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
           return parent[propertyName];
@@ -14241,10 +14343,10 @@ var templates = [
         return undefined
     };
 
-  return "<style>\n    @import url('https://rcshige3.nig.ac.jp/rdf/css/bootstrap.min.css');\n    @import url('https://rcshige3.nig.ac.jp/rdf/css/jquery.dataTables.css');\n</style>\n\n<div class=\"form-check\" style=\"float: right;\">\n    <input class=\"form-check-input\" type=\"checkbox\" id=\"checkbox\"/>\n    <label class=\"form-check-label\" for=\"checkbox\">URI表示</label>\n</div>\n<div class=\"table-responsive\">\n    <table id=\"resultTable\" class=\"table table-bordered table-striped\">\n        <thead class=\"thead-dark\">\n"
-    + ((stack1 = lookupProperty(helpers,"each").call(alias1,(depth0 != null ? lookupProperty(depth0,"silkworm_phenotype_uri") : depth0),{"name":"each","hash":{},"fn":container.program(1, data, 1, blockParams),"inverse":container.noop,"data":data,"blockParams":blockParams,"loc":{"start":{"line":13,"column":12},"end":{"line":34,"column":21}}})) != null ? stack1 : "")
-    + "        </thead>\n        <tbody>\n"
-    + ((stack1 = lookupProperty(helpers,"each").call(alias1,(depth0 != null ? lookupProperty(depth0,"silkworm_phenotype_search") : depth0),{"name":"each","hash":{},"fn":container.program(3, data, 1, blockParams),"inverse":container.noop,"data":data,"blockParams":blockParams,"loc":{"start":{"line":37,"column":12},"end":{"line":44,"column":21}}})) != null ? stack1 : "")
+  return "<style>\n    @import url('https://rcshige3.nig.ac.jp/rdf/css/bootstrap.min.css');\n    @import url('https://rcshige3.nig.ac.jp/rdf/css/jquery.dataTables.css');\n</style>\n\n<div class=\"form-check\" style=\"float: right;\">\n    <input class=\"form-check-input\" type=\"checkbox\" id=\"checkbox\"/>\n    <label class=\"form-check-label\" for=\"checkbox\">URI表示</label>\n</div>\n<div class=\"table-responsive\">\n    <table id=\"resultTable\" class=\"table table-bordered table-striped\">\n        <thead class=\"thead-dark\">\n            <!-- "
+    + ((stack1 = lookupProperty(helpers,"each").call(alias1,(depth0 != null ? lookupProperty(depth0,"silkworm_phenotype_uri") : depth0),{"name":"each","hash":{},"fn":container.program(1, data, 1, blockParams),"inverse":container.noop,"data":data,"blockParams":blockParams,"loc":{"start":{"line":13,"column":17},"end":{"line":56,"column":26}}})) != null ? stack1 : "")
+    + " -->\n        </thead>\n        <tbody>\n"
+    + ((stack1 = lookupProperty(helpers,"each").call(alias1,(depth0 != null ? lookupProperty(depth0,"silkworm_phenotype_search") : depth0),{"name":"each","hash":{},"fn":container.program(6, data, 1, blockParams),"inverse":container.noop,"data":data,"blockParams":blockParams,"loc":{"start":{"line":59,"column":12},"end":{"line":66,"column":21}}})) != null ? stack1 : "")
     + "        </tbody>\n    </table>\n</div>\n\n";
 },"useData":true,"useBlockParams":true}],
 ["stanza1.rq", {"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {

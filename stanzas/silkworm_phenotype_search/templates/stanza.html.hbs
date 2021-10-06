@@ -5,28 +5,28 @@
 
 <div class="form-check" style="float: right;">
     <input class="form-check-input" type="checkbox" id="checkbox"/>
-    <label class="form-check-label" for="checkbox">{{#if lang}}URI表示{{else}}Show URI{{/if}}</label>
+    <label class="form-check-label" for="checkbox">Show URI</label>
 </div>
 <div class="table-responsive">
     <table id="resultTable" class="table table-bordered table-striped">
         <thead class="thead-dark">
             <th>
-                {{#if lang}}系統{{else}}Strain{{/if}}<br/>
+                Strain<br/>
                 <input type="button" id="uri1" class="btn btn-link" style="display: none;" value="{{uri_identifier}}"
                     onclick="location.href='{{uri_identifier}}'"/>
             </th>
             <th>
-                {{#if lang}}遺伝的背景{{else}}Background{{/if}}<br/>
+                Background<br/>
                 <input type="button" id="uri2" class="btn btn-link" style="display: none;" value="{{uri_label}}"
                     onclick="location.href='{{uri_label}}'"/>
             </th>
             <th>
-                {{#if lang}}成果論文{{else}}Reference{{/if}}<br/>
+                Journal<br/>
                 <input type="button" id="uri3" class="btn btn-link" style="display: none;" value="{{uri_isReferencedBy}}"
                     onclick="location.href='{{uri_isReferencedBy}}'"/>
             </th>
             <th>
-                {{#if lang}}起源{{else}}Origin{{/if}}<br/>
+                Origin<br/>
                 <input type="button" id="uri4" class="btn btn-link" style="display: none;" value="{{uri_derived_from}}"
                     onclick="location.href='{{uri_derived_from}}'"/>
             </th>
@@ -34,7 +34,7 @@
         <tbody>
             {{#each silkworm_phenotype_search as |item|}}
             <tr>
-                <td><a href="https://rcshige3.nig.ac.jp/bioresource-search/api/silkworm/{{item.id}}">{{item.id}}</a></td>
+                <td><a href="https://rcshige3.nig.ac.jp/bioresource-search/api/silkworm/{{item.id}}" target="_blank">{{item.id}}</a></td>
                 <td>{{{item.phenotype}}}</td>
                 <td>{{{item.reference}}}</td>
                 <td>{{{item.derived_from}}}</td>

@@ -21,14 +21,6 @@
       "stanza:example": "",
       "stanza:description": "Bombyx Mori or Drosophila Phenotype Ontology Class URI.",
       "stanza:required": false
-    },
-    {
-      "stanza:key": "language",
-      "stanza:type": "single-choice",
-      "stanza:choice": ["ja", "en"],
-      "stanza:example": "ja",
-      "stanza:description": "Display language.",
-      "stanza:required": true
     }
   ],
   "stanza:menu-placement": "none",

@@ -1,3 +1,4 @@
+import 'https://rcshige3.nig.ac.jp/rdf/js/jquery-3.5.1.min.js';
 import 'https://rcshige3.nig.ac.jp/rdf/js/jquery.dataTables.min.js';
 
 // In the absence of a WeakSet or WeakMap implementation, don't break, but don't cache either.
@@ -14046,9 +14047,30 @@ function unwrapValueFromBinding(queryResult) {
   });
 }
 
+var config = {
+
+	// 開発環境
+	DEVELOP_ENDPOINT: 'https://rcshige3.nig.ac.jp/rdf/sparql/',
+	DEVELOP_GRAPH: 'http://iruddat2.nig.ac.jp:8120/bmori/mutants',
+
+	// 本番環境
+	RELEASE_ENDPOINT: 'https://lod.nbrp.jp/sparql',
+	RELEASE_GRAPH: 'https://lod.nbrp.jp/bmori/mutants'
+};
+
+const environment = 'development';
+
 class SilkwormPhenotypeSearch extends Stanza {
 	async render() {
 		try {
+
+			let endpoint = '';
+			let graph = '';
+
+			if (environment == 'development'){
+				endpoint = config.DEVELOP_ENDPOINT;
+				graph = config.DEVELOP_GRAPH;
+			}
 
 			// ローディング中くるくる表示
 			var dispMsg = "<div class='loadingMsg'>Now loading</div>";
@@ -14057,7 +14079,7 @@ class SilkwormPhenotypeSearch extends Stanza {
 			}
 
 			let data1 = await this.query({
-				endpoint : "https://rcshige3.nig.ac.jp/rdf/sparql/",
+				endpoint : endpoint,
 				template : "stanza1.rq",
 			});
 			let result1 = unwrapValueFromBinding(data1);
@@ -14070,9 +14092,12 @@ class SilkwormPhenotypeSearch extends Stanza {
 			}
 
 			let data2 = await this.query({
-				endpoint : "https://rcshige3.nig.ac.jp/rdf/sparql/",
+				endpoint : endpoint,
 				template : rq,
-				parameters : this.params,
+				parameters: {
+					graph	: `${graph}`,
+					keyword	: `${this.params['uri']}`
+				}
 			});
 			let result2 = unwrapValueFromBinding(data2);
 
@@ -14330,10 +14355,28 @@ var templates = [
     + "        </tbody>\n    </table>\n</div>\n\n";
 },"useData":true,"useBlockParams":true}],
 ["stanza1.rq", {"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "PREFIX brso: <http://purl.jp/bio/10/brso/>\nPREFIX sio: <http://semanticscience.org/resource/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX so: <http://purl.obolibrary.org/obo/so#>\nPREFIX skos: <http://www.w3.org/2004/02/skos/core#>\nPREFIX faldo: <http://biohackathon.org/resource/faldo#>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX insdc: <http://ddbj.nig.ac.jp/ontologies/nucleotide/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX org: <http://www.w3.org/ns/org#>\n\nSELECT\n    dct:identifier as ?uri_identifier\n    rdfs:label as ?uri_label\n    dct:isReferencedBy as ?uri_isReferencedBy\n    brso:derived_from as ?uri_derived_from\nFROM <http://iruddat2.nig.ac.jp:8120/silkworm_v4_0_0>\nWHERE {\n}\nlimit 1\n";
+    var stack1, helper, lookupProperty = container.lookupProperty || function(parent, propertyName) {
+        if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
+          return parent[propertyName];
+        }
+        return undefined
+    };
+
+  return "PREFIX brso: <http://purl.jp/bio/10/brso/>\nPREFIX sio: <http://semanticscience.org/resource/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX so: <http://purl.obolibrary.org/obo/so#>\nPREFIX skos: <http://www.w3.org/2004/02/skos/core#>\nPREFIX faldo: <http://biohackathon.org/resource/faldo#>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX insdc: <http://ddbj.nig.ac.jp/ontologies/nucleotide/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX org: <http://www.w3.org/ns/org#>\n\nSELECT\n    dct:identifier as ?uri_identifier\n    rdfs:label as ?uri_label\n    dct:isReferencedBy as ?uri_isReferencedBy\n    brso:derived_from as ?uri_derived_from\nFROM <"
+    + ((stack1 = ((helper = (helper = lookupProperty(helpers,"graph") || (depth0 != null ? lookupProperty(depth0,"graph") : depth0)) != null ? helper : container.hooks.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"graph","hash":{},"data":data,"loc":{"start":{"line":17,"column":6},"end":{"line":17,"column":15}}}) : helper))) != null ? stack1 : "")
+    + ">\nWHERE {\n}\nlimit 1\n";
 },"useData":true}],
 ["stanza21.rq", {"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "DEFINE sql:select-option \"order\" \nPREFIX brso: <http://purl.jp/bio/10/brso/>\nPREFIX sio: <http://semanticscience.org/resource/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dcterms: <http://purl.org/dc/terms/>\nPREFIX bmpo: <http://purl.bioontology.org/ontology/BMPO/>\n\nSELECT DISTINCT\n    ?id\n    (group_concat(distinct ?phenotype;separator = \", \") AS ?phenotype)\n    (group_concat(distinct ?journal ;separator = \",\") AS ?journal)\n    (group_concat(distinct ?origin;separator = \", \") AS ?origin)\nFROM <http://iruddat2.nig.ac.jp:8120/silkworm_v4_0_0>\nWHERE {\n    {\n        ?Resource a brso:BiologicalResource ;\n            dcterms:identifier ?id ;\n            bmpo:stage_egg ?StageEgg .\n        ?StageEgg a brso:BiologicalResourceEgg .\n        \n        OPTIONAL {?Resource dcterms:isReferencedBy ?journal .}\n        OPTIONAL {?Resource brso:derived_from ?origin .}\n        OPTIONAL {\n            ?StageEgg sio:SIO_001279 _:b1 .\n            _:b1 a sio:SIO_010056 ;\n                rdfs:label ?phenotype .\n            filter(LANG(?phenotype) = '')\n        }\n    } UNION {\n        ?Resource a brso:BiologicalResource ;\n            dcterms:identifier ?id ;\n            bmpo:stage_larva ?StageLarva .\n        ?StageLarva a brso:BiologicalResourceLarva .\n\n        OPTIONAL {?Resource dcterms:isReferencedBy ?journal .}\n        OPTIONAL {?Resource brso:derived_from ?origin .}\n        OPTIONAL {\n            ?StageLarva sio:SIO_001279 _:b2 .\n            _:b2 a sio:SIO_010056 ;\n                rdfs:label ?phenotype .\n            filter(LANG(?phenotype) = '')\n        }\n    } UNION {\n        ?Resource a brso:BiologicalResource ;\n            dcterms:identifier ?id ;\n            bmpo:stage_pupa ?StagePupa .\n        ?StagePupa a brso:BiologicalResourcePupa .\n\n        OPTIONAL {?Resource dcterms:isReferencedBy ?journal .}\n        OPTIONAL {?Resource brso:derived_from ?origin .}  \n        OPTIONAL {\n            ?StagePupa sio:SIO_001279 _:b3 .\n            _:b3 a sio:SIO_010056 ;\n                rdfs:label ?phenotype .\n            filter(LANG(?phenotype) = '')\n        }\n    } UNION {\n        ?Resource a brso:BiologicalResource ;\n            dcterms:identifier ?id ;\n            bmpo:stage_adult ?StageAdult .\n        ?StageAdult a brso:BiologicalResourceAdult .\n\n        OPTIONAL {?Resource dcterms:isReferencedBy ?journal .}\n        OPTIONAL {?Resource brso:derived_from ?origin .}  \n        OPTIONAL {\n            ?StageAdult sio:SIO_001279 _:b4 .\n            _:b4 a sio:SIO_010056 ;\n                rdfs:label ?phenotype .\n            filter(LANG(?phenotype) = '')\n        }\n    }\n}\nORDER BY ?id\n";
+    var stack1, helper, lookupProperty = container.lookupProperty || function(parent, propertyName) {
+        if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
+          return parent[propertyName];
+        }
+        return undefined
+    };
+
+  return "DEFINE sql:select-option \"order\" \nPREFIX brso: <http://purl.jp/bio/10/brso/>\nPREFIX sio: <http://semanticscience.org/resource/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dcterms: <http://purl.org/dc/terms/>\nPREFIX bmpo: <http://purl.bioontology.org/ontology/BMPO/>\n\nSELECT DISTINCT\n    ?id\n    (group_concat(distinct ?phenotype;separator = \", \") AS ?phenotype)\n    (group_concat(distinct ?journal ;separator = \",\") AS ?journal)\n    (group_concat(distinct ?origin;separator = \", \") AS ?origin)\nFROM <"
+    + ((stack1 = ((helper = (helper = lookupProperty(helpers,"graph") || (depth0 != null ? lookupProperty(depth0,"graph") : depth0)) != null ? helper : container.hooks.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"graph","hash":{},"data":data,"loc":{"start":{"line":13,"column":6},"end":{"line":13,"column":15}}}) : helper))) != null ? stack1 : "")
+    + ">\nWHERE {\n    {\n        ?Resource a brso:BiologicalResource ;\n            dcterms:identifier ?id ;\n            bmpo:stage_egg ?StageEgg .\n        ?StageEgg a brso:BiologicalResourceEgg .\n        \n        OPTIONAL {?Resource dcterms:isReferencedBy ?journal .}\n        OPTIONAL {?Resource brso:derived_from ?origin .}\n        OPTIONAL {\n            ?StageEgg sio:SIO_001279 _:b1 .\n            _:b1 a sio:SIO_010056 ;\n                rdfs:label ?phenotype .\n            filter(LANG(?phenotype) = '')\n        }\n    } UNION {\n        ?Resource a brso:BiologicalResource ;\n            dcterms:identifier ?id ;\n            bmpo:stage_larva ?StageLarva .\n        ?StageLarva a brso:BiologicalResourceLarva .\n\n        OPTIONAL {?Resource dcterms:isReferencedBy ?journal .}\n        OPTIONAL {?Resource brso:derived_from ?origin .}\n        OPTIONAL {\n            ?StageLarva sio:SIO_001279 _:b2 .\n            _:b2 a sio:SIO_010056 ;\n                rdfs:label ?phenotype .\n            filter(LANG(?phenotype) = '')\n        }\n    } UNION {\n        ?Resource a brso:BiologicalResource ;\n            dcterms:identifier ?id ;\n            bmpo:stage_pupa ?StagePupa .\n        ?StagePupa a brso:BiologicalResourcePupa .\n\n        OPTIONAL {?Resource dcterms:isReferencedBy ?journal .}\n        OPTIONAL {?Resource brso:derived_from ?origin .}  \n        OPTIONAL {\n            ?StagePupa sio:SIO_001279 _:b3 .\n            _:b3 a sio:SIO_010056 ;\n                rdfs:label ?phenotype .\n            filter(LANG(?phenotype) = '')\n        }\n    } UNION {\n        ?Resource a brso:BiologicalResource ;\n            dcterms:identifier ?id ;\n            bmpo:stage_adult ?StageAdult .\n        ?StageAdult a brso:BiologicalResourceAdult .\n\n        OPTIONAL {?Resource dcterms:isReferencedBy ?journal .}\n        OPTIONAL {?Resource brso:derived_from ?origin .}  \n        OPTIONAL {\n            ?StageAdult sio:SIO_001279 _:b4 .\n            _:b4 a sio:SIO_010056 ;\n                rdfs:label ?phenotype .\n            filter(LANG(?phenotype) = '')\n        }\n    }\n}\nORDER BY ?id\n";
 },"useData":true}],
 ["stanza22.rq", {"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1, helper, alias1=depth0 != null ? depth0 : (container.nullContext || {}), alias2=container.hooks.helperMissing, alias3="function", lookupProperty = container.lookupProperty || function(parent, propertyName) {
@@ -14343,7 +14386,11 @@ var templates = [
         return undefined
     };
 
-  return "DEFINE sql:select-option \"order\"\nPREFIX brso: <http://purl.jp/bio/10/brso/>\nPREFIX sio: <http://semanticscience.org/resource/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX bmpo: <http://purl.bioontology.org/ontology/BMPO/>\n\nSELECT DISTINCT\n    ?id\n    (group_concat(distinct ?phenotype;separator = \", \") AS ?phenotype)\n    (group_concat(distinct ?journal ;separator = \",\") AS ?journal)\n    (group_concat(distinct ?origin;separator = \", \") AS ?origin)\nFROM <http://iruddat2.nig.ac.jp:8120/silkworm_v4_0_0>\nWHERE {\n    {\n        ?Resource a brso:BiologicalResource ;\n            dcterms:identifier ?id ;\n            bmpo:stage_egg ?StageEgg .\n        ?StageEgg a brso:BiologicalResourceEgg .\n        \n        OPTIONAL {?Resource dcterms:isReferencedBy ?journal .}\n        OPTIONAL {?Resource brso:derived_from ?origin .}\n        OPTIONAL {\n            ?StageEgg sio:SIO_001279 _:b1 .\n            _:b1 a sio:SIO_010056 ;\n                rdfs:label ?phenotype .\n            filter(LANG(?phenotype) = '')\n        }\n    } UNION {\n        ?Resource a brso:BiologicalResource ;\n            dcterms:identifier ?id ;\n            bmpo:stage_larva ?StageLarva .\n        ?StageLarva a brso:BiologicalResourceLarva .\n\n        OPTIONAL {?Resource dcterms:isReferencedBy ?journal .}\n        OPTIONAL {?Resource brso:derived_from ?origin .}\n        OPTIONAL {\n            ?StageLarva sio:SIO_001279 _:b2 .\n            _:b2 a sio:SIO_010056 ;\n                rdfs:label ?phenotype .\n            filter(LANG(?phenotype) = '')\n        }\n    } UNION {\n        ?Resource a brso:BiologicalResource ;\n            dcterms:identifier ?id ;\n            bmpo:stage_pupa ?StagePupa .\n        ?StagePupa a brso:BiologicalResourcePupa .\n\n        OPTIONAL {?Resource dcterms:isReferencedBy ?journal .}\n        OPTIONAL {?Resource brso:derived_from ?origin .}  \n        OPTIONAL {\n            ?StagePupa sio:SIO_001279 _:b3 .\n            _:b3 a sio:SIO_010056 ;\n                rdfs:label ?phenotype .\n            filter(LANG(?phenotype) = '')\n        }\n    } UNION {\n        ?Resource a brso:BiologicalResource ;\n            dcterms:identifier ?id ;\n            bmpo:stage_adult ?StageAdult .\n        ?StageAdult a brso:BiologicalResourceAdult .\n\n        OPTIONAL {?Resource dcterms:isReferencedBy ?journal .}\n        OPTIONAL {?Resource brso:derived_from ?origin .}  \n        OPTIONAL {\n            ?StageAdult sio:SIO_001279 _:b4 .\n            _:b4 a sio:SIO_010056 ;\n                rdfs:label ?phenotype .\n            filter(LANG(?phenotype) = '')\n        }\n    }\n    {\n        SELECT DISTINCT ?id\n        FROM <http://iruddat2.nig.ac.jp:8120/silkworm_v4_0_0>\n        WHERE {\n            {\n                ?Resource a brso:BiologicalResource ;\n                    dct:identifier ?id ;\n                    bmpo:stage_egg ?StageResource .\n                ?StageResource a brso:BiologicalResourceEgg ;\n                    sio:SIO_001279 _:b6 .\n                _:b6 a sio:SIO_010056 ;\n                    sio:SIO_000255 <"
+  return "DEFINE sql:select-option \"order\"\nPREFIX brso: <http://purl.jp/bio/10/brso/>\nPREFIX sio: <http://semanticscience.org/resource/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX bmpo: <http://purl.bioontology.org/ontology/BMPO/>\n\nSELECT DISTINCT\n    ?id\n    (group_concat(distinct ?phenotype;separator = \", \") AS ?phenotype)\n    (group_concat(distinct ?journal ;separator = \",\") AS ?journal)\n    (group_concat(distinct ?origin;separator = \", \") AS ?origin)\nFROM <"
+    + ((stack1 = ((helper = (helper = lookupProperty(helpers,"graph") || (depth0 != null ? lookupProperty(depth0,"graph") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"graph","hash":{},"data":data,"loc":{"start":{"line":13,"column":6},"end":{"line":13,"column":15}}}) : helper))) != null ? stack1 : "")
+    + ">\nWHERE {\n    {\n        ?Resource a brso:BiologicalResource ;\n            dcterms:identifier ?id ;\n            bmpo:stage_egg ?StageEgg .\n        ?StageEgg a brso:BiologicalResourceEgg .\n        \n        OPTIONAL {?Resource dcterms:isReferencedBy ?journal .}\n        OPTIONAL {?Resource brso:derived_from ?origin .}\n        OPTIONAL {\n            ?StageEgg sio:SIO_001279 _:b1 .\n            _:b1 a sio:SIO_010056 ;\n                rdfs:label ?phenotype .\n            filter(LANG(?phenotype) = '')\n        }\n    } UNION {\n        ?Resource a brso:BiologicalResource ;\n            dcterms:identifier ?id ;\n            bmpo:stage_larva ?StageLarva .\n        ?StageLarva a brso:BiologicalResourceLarva .\n\n        OPTIONAL {?Resource dcterms:isReferencedBy ?journal .}\n        OPTIONAL {?Resource brso:derived_from ?origin .}\n        OPTIONAL {\n            ?StageLarva sio:SIO_001279 _:b2 .\n            _:b2 a sio:SIO_010056 ;\n                rdfs:label ?phenotype .\n            filter(LANG(?phenotype) = '')\n        }\n    } UNION {\n        ?Resource a brso:BiologicalResource ;\n            dcterms:identifier ?id ;\n            bmpo:stage_pupa ?StagePupa .\n        ?StagePupa a brso:BiologicalResourcePupa .\n\n        OPTIONAL {?Resource dcterms:isReferencedBy ?journal .}\n        OPTIONAL {?Resource brso:derived_from ?origin .}  \n        OPTIONAL {\n            ?StagePupa sio:SIO_001279 _:b3 .\n            _:b3 a sio:SIO_010056 ;\n                rdfs:label ?phenotype .\n            filter(LANG(?phenotype) = '')\n        }\n    } UNION {\n        ?Resource a brso:BiologicalResource ;\n            dcterms:identifier ?id ;\n            bmpo:stage_adult ?StageAdult .\n        ?StageAdult a brso:BiologicalResourceAdult .\n\n        OPTIONAL {?Resource dcterms:isReferencedBy ?journal .}\n        OPTIONAL {?Resource brso:derived_from ?origin .}  \n        OPTIONAL {\n            ?StageAdult sio:SIO_001279 _:b4 .\n            _:b4 a sio:SIO_010056 ;\n                rdfs:label ?phenotype .\n            filter(LANG(?phenotype) = '')\n        }\n    }\n    {\n        SELECT DISTINCT ?id\n        FROM <"
+    + ((stack1 = ((helper = (helper = lookupProperty(helpers,"graph") || (depth0 != null ? lookupProperty(depth0,"graph") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"graph","hash":{},"data":data,"loc":{"start":{"line":74,"column":14},"end":{"line":74,"column":23}}}) : helper))) != null ? stack1 : "")
+    + ">\n        WHERE {\n            {\n                ?Resource a brso:BiologicalResource ;\n                    dct:identifier ?id ;\n                    bmpo:stage_egg ?StageResource .\n                ?StageResource a brso:BiologicalResourceEgg ;\n                    sio:SIO_001279 _:b6 .\n                _:b6 a sio:SIO_010056 ;\n                    sio:SIO_000255 <"
     + ((stack1 = ((helper = (helper = lookupProperty(helpers,"uri") || (depth0 != null ? lookupProperty(depth0,"uri") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"uri","hash":{},"data":data,"loc":{"start":{"line":83,"column":36},"end":{"line":83,"column":43}}}) : helper))) != null ? stack1 : "")
     + "> .\n            } UNION {\n                ?Resource a brso:BiologicalResource ;\n                    dct:identifier ?id ;\n                    bmpo:stage_egg ?StageResource .\n                ?StageResource a brso:BiologicalResourceEgg ;\n                    sio:SIO_001279 _:b7 .\n                _:b7 a sio:SIO_010056 ;\n                    rdfs:seeAlso <"
     + ((stack1 = ((helper = (helper = lookupProperty(helpers,"uri") || (depth0 != null ? lookupProperty(depth0,"uri") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"uri","hash":{},"data":data,"loc":{"start":{"line":91,"column":34},"end":{"line":91,"column":41}}}) : helper))) != null ? stack1 : "")

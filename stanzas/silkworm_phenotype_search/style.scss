@@ -23,6 +23,64 @@ table.dataTable {
   width: 99%;
 }
 
+.top{
+  display: flex;
+  justify-content: center; /* 中央寄せ */
+}
+
+.bottom{
+  display: flex;
+  justify-content: center; /* 中央寄せ */
+}
+
+.dataTables_wrapper .dataTables_paginate {
+  float: none !important;
+  text-align: center !important;
+  padding-top: 0;
+}
+
+.dataTables_wrapper .dataTables_info {
+  padding-top: 0.6em;
+}
+
 .form-check-input {
   margin-top: 0;
+}
+
+.information {
+  margin-right: 2em;
+}
+
+.length_changing {
+  padding-top: 0.2em;
+  margin-left: 2em;
+}
+
+#loading {
+	display: table;
+	width: 100%;
+	height: 100%;
+	position: relative;
+	top: 0;
+	left: 0;
+	background-color: #fff;
+	opacity: 0.8;
+}
+
+#loading .loadingMsg {
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
+	padding-top: 60px;
+	background: url("silkworm_phenotype_search/assets/ajax-loader.gif") center center no-repeat;
+}
+
+.errorMsg {
+	width: 100%;
+	height: 100%;
+	position: relative;
+	top: 0;
+	left: 0;
+	text-align: center;
+	vertical-align: middle;
 }

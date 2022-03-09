@@ -28,7 +28,7 @@ export default class SilkwormPhenotypeSearch extends Stanza {
 //			}
 			let	endpoint = 'https://lod.nbrp.jp/sparql';
 			let	graph = 'https://lod.nbrp.jp/bmori/mutants';
-
+			console.log('endpoint=' + endpoint);
 			// ローディング中くるくる表示
 			var dispMsg = "<div class='loadingMsg'>Now loading</div>";
 			if ($(this.root.querySelector("#loading")).length == 0) {

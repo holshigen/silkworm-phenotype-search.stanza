@@ -170,7 +170,7 @@ if (typeof module !== "undefined") {
 
 var commonjsGlobal = typeof globalThis !== 'undefined' ? globalThis : typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
 
-var alert = {
+var alert$1 = {
 	name: "alert",
 	keywords: [
 		"warning",
@@ -2380,7 +2380,7 @@ var zap = {
 	}
 };
 var require$$0 = {
-	alert: alert,
+	alert: alert$1,
 	archive: archive,
 	"arrow-both": {
 	name: "arrow-both",
@@ -14065,7 +14065,7 @@ class SilkwormPhenotypeSearch extends Stanza {
 //			}
 			let	endpoint = 'https://lod.nbrp.jp/sparql';
 			let	graph = 'https://lod.nbrp.jp/bmori/mutants';
-			console.log('endpoint=' + endpoint);
+			alert('endpoint=' + endpoint);
 			// ローディング中くるくる表示
 			var dispMsg = "<div class='loadingMsg'>Now loading</div>";
 			if ($(this.root.querySelector("#loading")).length == 0) {

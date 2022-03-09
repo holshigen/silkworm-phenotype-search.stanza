@@ -36,6 +36,9 @@ export default class SilkwormPhenotypeSearch extends Stanza {
 			let data1 = await this.query({
 				endpoint : endpoint,
 				template : "stanza1.rq",
+				parameters: {
+					graph	: `${graph}`
+				}
 			});
 			let result1 = unwrapValueFromBinding(data1);
 

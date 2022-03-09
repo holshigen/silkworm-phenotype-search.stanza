@@ -4,7 +4,7 @@ import { unwrapValueFromBinding } from 'togostanza/utils';
  * jQueryはウェブアプリケーション側のPrimefacesと衝突するため通常はコメントアウトしておく。
  * Stanza単体で動作させる場合はコメントを外す。
  */
-//import * as jquery from 'https://rcshige3.nig.ac.jp/rdf/js/jquery-3.5.1.min.js';
+import * as jquery from 'https://rcshige3.nig.ac.jp/rdf/js/jquery-3.5.1.min.js';
 import * as dataTables from 'https://rcshige3.nig.ac.jp/rdf/js/jquery.dataTables.min.js';
 import config from '@/config/config.js';
 
@@ -14,18 +14,20 @@ export default class SilkwormPhenotypeSearch extends Stanza {
 	async render() {
 		try {
 
-			let endpoint = '';
-			let graph = '';
+//			let endpoint = '';
+//			let graph = '';
 
-			if (environment == 'development'){
-				endpoint = config.DEVELOP_ENDPOINT;
-				graph = config.DEVELOP_GRAPH;
-			} else if(environment == 'release'){
-				endpoint = config.RELEASE_ENDPOINT;
-				graph = config.RELEASE_GRAPH;
-			} else {
-				// 何もしない
-			}
+//			if (environment == 'development'){
+//				endpoint = config.DEVELOP_ENDPOINT;
+//				graph = config.DEVELOP_GRAPH;
+//			} else if(environment == 'release'){
+//				endpoint = config.RELEASE_ENDPOINT;
+//				graph = config.RELEASE_GRAPH;
+//			} else {
+//				// 何もしない
+//			}
+			let	endpoint = config.RELEASE_ENDPOINT;
+			let	graph = config.RELEASE_GRAPH;
 
 			// ローディング中くるくる表示
 			var dispMsg = "<div class='loadingMsg'>Now loading</div>";

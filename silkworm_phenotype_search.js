@@ -1,3 +1,4 @@
+import 'https://rcshige3.nig.ac.jp/rdf/js/jquery-3.5.1.min.js';
 import 'https://rcshige3.nig.ac.jp/rdf/js/jquery.dataTables.min.js';
 
 // In the absence of a WeakSet or WeakMap implementation, don't break, but don't cache either.
@@ -14057,19 +14058,24 @@ var config = {
 	RELEASE_GRAPH: 'https://lod.nbrp.jp/bmori/mutants'
 };
 
-const environment = 'development';
-
 class SilkwormPhenotypeSearch extends Stanza {
 	async render() {
 		try {
 
-			let endpoint = '';
-			let graph = '';
+//			let endpoint = '';
+//			let graph = '';
 
-			if (environment == 'development'){
-				endpoint = config.DEVELOP_ENDPOINT;
-				graph = config.DEVELOP_GRAPH;
-			}
+//			if (environment == 'development'){
+//				endpoint = config.DEVELOP_ENDPOINT;
+//				graph = config.DEVELOP_GRAPH;
+//			} else if(environment == 'release'){
+//				endpoint = config.RELEASE_ENDPOINT;
+//				graph = config.RELEASE_GRAPH;
+//			} else {
+//				// 何もしない
+//			}
+			let	endpoint = config.RELEASE_ENDPOINT;
+			let	graph = config.RELEASE_GRAPH;
 
 			// ローディング中くるくる表示
 			var dispMsg = "<div class='loadingMsg'>Now loading</div>";

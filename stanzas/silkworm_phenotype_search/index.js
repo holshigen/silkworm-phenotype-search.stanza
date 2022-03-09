@@ -26,7 +26,8 @@ export default class SilkwormPhenotypeSearch extends Stanza {
 			} else {
 				// 何もしない
 			}
-
+			console.log('endpoint=' + endpoint);
+			
 			// ローディング中くるくる表示
 			var dispMsg = "<div class='loadingMsg'>Now loading</div>";
 			if ($(this.root.querySelector("#loading")).length == 0) {

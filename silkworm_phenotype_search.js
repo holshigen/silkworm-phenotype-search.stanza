@@ -1,4 +1,3 @@
-import 'https://rcshige3.nig.ac.jp/rdf/js/jquery-3.5.1.min.js';
 import 'https://rcshige3.nig.ac.jp/rdf/js/jquery.dataTables.min.js';
 
 // In the absence of a WeakSet or WeakMap implementation, don't break, but don't cache either.
@@ -14071,7 +14070,6 @@ class SilkwormPhenotypeSearch extends Stanza {
 				endpoint = config.DEVELOP_ENDPOINT;
 				graph = config.DEVELOP_GRAPH;
 			}
-			console.log('endpoint=' + endpoint);
 
 			// ローディング中くるくる表示
 			var dispMsg = "<div class='loadingMsg'>Now loading</div>";

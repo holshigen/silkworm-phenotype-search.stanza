@@ -14047,25 +14047,32 @@ function unwrapValueFromBinding(queryResult) {
   });
 }
 
+var config = {
+
+	// 開発環境
+	DEVELOP_ENDPOINT: 'https://rcshige3.nig.ac.jp/rdf/sparql/',
+	DEVELOP_GRAPH: 'http://iruddat2.nig.ac.jp:8120/bmori/mutants',
+
+	// 本番環境
+	RELEASE_ENDPOINT: 'https://lod.nbrp.jp/sparql',
+	RELEASE_GRAPH: 'https://lod.nbrp.jp/bmori/mutants'
+};
+
+const environment = 'development';
+
 class SilkwormPhenotypeSearch extends Stanza {
 	async render() {
 		try {
 
-//			let endpoint = '';
-//			let graph = '';
+			let endpoint = '';
+			let graph = '';
 
-//			if (environment == 'development'){
-//				endpoint = config.DEVELOP_ENDPOINT;
-//				graph = config.DEVELOP_GRAPH;
-//			} else if(environment == 'release'){
-//				endpoint = config.RELEASE_ENDPOINT;
-//				graph = config.RELEASE_GRAPH;
-//			} else {
-//				// 何もしない
-//			}
-			let	endpoint = 'https://lod.nbrp.jp/sparql';
-			let	graph = 'https://lod.nbrp.jp/bmori/mutants';
+			if (environment == 'development'){
+				endpoint = config.DEVELOP_ENDPOINT;
+				graph = config.DEVELOP_GRAPH;
+			}
 			console.log('endpoint=' + endpoint);
+
 			// ローディング中くるくる表示
 			var dispMsg = "<div class='loadingMsg'>Now loading</div>";
 			if ($(this.root.querySelector("#loading")).length == 0) {

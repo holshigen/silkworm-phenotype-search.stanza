@@ -18,7 +18,7 @@
     {
       "stanza:key": "uri",
       "stanza:type": "string",
-      "stanza:example": "",
+      "stanza:example": "http://purl.bioontology.org/ontology/BMPO/Gl",
       "stanza:description": "Bombyx Mori or Drosophila Phenotype Ontology Class URI.",
       "stanza:required": false
     }

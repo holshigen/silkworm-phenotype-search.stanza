@@ -51,7 +51,7 @@ export default class SilkwormPhenotypeSearch extends Stanza {
 				template : rq,
 				parameters: {
 					graph	: `${graph}`,
-					keyword	: `${this.params['uri']}`
+					uri	: `${this.params['uri']}`
 				}
 			});
 			let result2 = unwrapValueFromBinding(data2);

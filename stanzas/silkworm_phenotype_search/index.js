@@ -5,7 +5,7 @@ import { unwrapValueFromBinding } from 'togostanza/utils';
  * Stanza単体で動作させる場合はコメントを外す。
  */
 import * as jquery from 'https://rcshige3.nig.ac.jp/rdf/js/jquery-3.5.1.min.js';
-//import * as dataTables from 'https://rcshige3.nig.ac.jp/rdf/js/jquery.dataTables.min.js';
+import * as dataTables from 'https://rcshige3.nig.ac.jp/rdf/js/jquery.dataTables.min.js';
 import config from '@/config/config.js';
 
 const environment = 'release';

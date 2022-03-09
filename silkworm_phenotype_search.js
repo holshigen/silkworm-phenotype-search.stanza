@@ -14047,17 +14047,6 @@ function unwrapValueFromBinding(queryResult) {
   });
 }
 
-var config = {
-
-	// 開発環境
-	DEVELOP_ENDPOINT: 'https://rcshige3.nig.ac.jp/rdf/sparql/',
-	DEVELOP_GRAPH: 'http://iruddat2.nig.ac.jp:8120/bmori/mutants',
-
-	// 本番環境
-	RELEASE_ENDPOINT: 'https://lod.nbrp.jp/sparql',
-	RELEASE_GRAPH: 'https://lod.nbrp.jp/bmori/mutants'
-};
-
 class SilkwormPhenotypeSearch extends Stanza {
 	async render() {
 		try {
@@ -14074,8 +14063,8 @@ class SilkwormPhenotypeSearch extends Stanza {
 //			} else {
 //				// 何もしない
 //			}
-			let	endpoint = config.RELEASE_ENDPOINT;
-			let	graph = config.RELEASE_GRAPH;
+			let	endpoint = 'https://lod.nbrp.jp/sparql';
+			let	graph = 'https://lod.nbrp.jp/bmori/mutants';
 
 			// ローディング中くるくる表示
 			var dispMsg = "<div class='loadingMsg'>Now loading</div>";

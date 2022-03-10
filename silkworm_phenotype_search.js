@@ -14057,7 +14057,7 @@ var config = {
 	RELEASE_GRAPH: 'https://lod.nbrp.jp/bmori/mutants'
 };
 
-const environment = 'development';
+const environment = 'release';
 
 class SilkwormPhenotypeSearch extends Stanza {
 	async render() {
@@ -14066,11 +14066,11 @@ class SilkwormPhenotypeSearch extends Stanza {
 			let endpoint = '';
 			let graph = '';
 
-			if (environment == 'development'){
-				endpoint = config.DEVELOP_ENDPOINT;
-				graph = config.DEVELOP_GRAPH;
-			}
-
+			if (environment == 'development'); else if(environment == 'release'){
+				endpoint = config.RELEASE_ENDPOINT;
+				graph = config.RELEASE_GRAPH;
+			} else ;
+			
 			// ローディング中くるくる表示
 			var dispMsg = "<div class='loadingMsg'>Now loading</div>";
 			if ($(this.root.querySelector("#loading")).length == 0) {
@@ -14080,6 +14080,9 @@ class SilkwormPhenotypeSearch extends Stanza {
 			let data1 = await this.query({
 				endpoint : endpoint,
 				template : "stanza1.rq",
+				parameters: {
+					graph	: `${graph}`
+				}
 			});
 			let result1 = unwrapValueFromBinding(data1);
 
@@ -14095,7 +14098,7 @@ class SilkwormPhenotypeSearch extends Stanza {
 				template : rq,
 				parameters: {
 					graph	: `${graph}`,
-					keyword	: `${this.params['uri']}`
+					uri	: `${this.params['uri']}`
 				}
 			});
 			let result2 = unwrapValueFromBinding(data2);
@@ -14191,7 +14194,7 @@ var metadata = {
 	{
 		"stanza:key": "uri",
 		"stanza:type": "string",
-		"stanza:example": "",
+		"stanza:example": "http://purl.bioontology.org/ontology/BMPO/w-3",
 		"stanza:description": "Bombyx Mori or Drosophila Phenotype Ontology Class URI.",
 		"stanza:required": false
 	}

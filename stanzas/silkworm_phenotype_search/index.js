@@ -8,7 +8,7 @@ import { unwrapValueFromBinding } from 'togostanza/utils';
 import * as dataTables from 'https://rcshige3.nig.ac.jp/rdf/js/jquery.dataTables.min.js';
 import config from '@/config/config.js';
 
-const environment = 'development';
+const environment = 'release';
 
 export default class SilkwormPhenotypeSearch extends Stanza {
 	async render() {
@@ -26,7 +26,7 @@ export default class SilkwormPhenotypeSearch extends Stanza {
 			} else {
 				// 何もしない
 			}
-
+			
 			// ローディング中くるくる表示
 			var dispMsg = "<div class='loadingMsg'>Now loading</div>";
 			if ($(this.root.querySelector("#loading")).length == 0) {
@@ -36,6 +36,9 @@ export default class SilkwormPhenotypeSearch extends Stanza {
 			let data1 = await this.query({
 				endpoint : endpoint,
 				template : "stanza1.rq",
+				parameters: {
+					graph	: `${graph}`
+				}
 			});
 			let result1 = unwrapValueFromBinding(data1);
 
@@ -51,7 +54,7 @@ export default class SilkwormPhenotypeSearch extends Stanza {
 				template : rq,
 				parameters: {
 					graph	: `${graph}`,
-					keyword	: `${this.params['uri']}`
+					uri	: `${this.params['uri']}`
 				}
 			});
 			let result2 = unwrapValueFromBinding(data2);
